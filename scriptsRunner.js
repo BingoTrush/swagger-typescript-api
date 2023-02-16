@@ -57,4 +57,5 @@ const run = async () => {
   }
 };
 
-run();
+console.warn(`不执行 prepare 钩子`);
+// run();
