@@ -1,0 +1,2235 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Identity v1",
+        "version": "v1"
+    },
+    "paths": {
+        "/iapi/v1/identity/auth/emailsignin": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "email éªè¯ç ç´æ¥ç»å½",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetEmailTokenRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetEmailTokenRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetEmailTokenRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetEmailTokenRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/auth/sendcode": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "åééªè¯ç ",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/auth/signin": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "ç³»ç»ç¨æ·ç»å¥",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignInRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignInRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignInRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignInRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/auth/signout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "éåºç»å½  æå¡ç«¯å é¤cookies",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/auth/getloginuserinfo": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "è·åå½åç¨æ·ä¿¡æ¯",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/auth/getloginusersimpleinfo": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "è·åå½åç¨æ·,æµç§°",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SignInResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/auth/checkpermission": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "æ£æ¥ç¨æ·æ¯å¦æè¿ä¸ªæé",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CheckPermissionRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CheckPermissionRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CheckPermissionRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CheckPermissionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/loginsecondvalid/loginsecondvalidstatus": {
+            "get": {
+                "tags": [
+                    "LoginSecondValid"
+                ],
+                "summary": "è·åå½åè®¾å¤,äºæ¬¡æ ¡éªç¶æ",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginSecondValidStatus"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginSecondValidStatus"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginSecondValidStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/loginsecondvalid/setloginsecondvalidstatus": {
+            "post": {
+                "tags": [
+                    "LoginSecondValid"
+                ],
+                "summary": "è®¾ç½®å½åè®¾å¤ï¼äºæ¬¡æ ¡éªç¶æ",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetLoginSecondValidRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetLoginSecondValidRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetLoginSecondValidRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetLoginSecondValidRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/manager/password/reset/{id}": {
+            "post": {
+                "tags": [
+                    "Manager"
+                ],
+                "summary": "éç½®å¯ç ",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/manager/password/change": {
+            "post": {
+                "tags": [
+                    "Manager"
+                ],
+                "summary": "ç¨æ·ä¿®æ¹å¯ç ",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangePasswordRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangePasswordRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangePasswordRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangePasswordRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/manager/all": {
+            "get": {
+                "tags": [
+                    "Manager"
+                ],
+                "summary": "è·åç³»ç»ç¨æ·ä¸æåè¡¨",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/manager/role/{userId}": {
+            "get": {
+                "tags": [
+                    "Manager"
+                ],
+                "summary": "æ ¹æ®ç¨æ·IDè·åè§è²",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RoleResponseItem"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RoleResponseItem"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RoleResponseItem"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/backend/save": {
+            "post": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "åç«¯æ·»å ææ´æ°æéé¡¹",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PermissionDto"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PermissionDto"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PermissionDto"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PermissionDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/frontend/save": {
+            "post": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "åç«¯æ·»å ææ´æ°æéé¡¹",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaveFrontPermissionRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaveFrontPermissionRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaveFrontPermissionRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaveFrontPermissionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/frontend/simpleupdate": {
+            "post": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "ç®æä¿®æ¹åç«¯æé",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SimpleUpdateFrontPermissionRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SimpleUpdateFrontPermissionRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SimpleUpdateFrontPermissionRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SimpleUpdateFrontPermissionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/frontend/batchsimpleupdate": {
+            "post": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "æ¹éç®æä¿®æ¹åç«¯æé",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SimpleUpdateFrontPermissionRequest"
+                                }
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SimpleUpdateFrontPermissionRequest"
+                                }
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SimpleUpdateFrontPermissionRequest"
+                                }
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SimpleUpdateFrontPermissionRequest"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/frontend/list": {
+            "get": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "è·ååç«¯æé(type == menu || type == ui)",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PermissionDto"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PermissionDto"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PermissionDto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/backend/list": {
+            "get": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "è·ååç«¯æé(type == data || type = api)",
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "æç´¢å³é®è¯ ï¼æ è¯ãåç§°ãè·¯ç±ï¼",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pageIndex",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "isDesc",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PermissionDtoPageableResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PermissionDtoPageableResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PermissionDtoPageableResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/del/{id}": {
+            "post": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "æ ¹æ®æéidå é¤æé",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/frontend/detail/{id}": {
+            "get": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "è·ååç«¯èåè¯¦æ",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetFrontendPermissionDetailResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetFrontendPermissionDetailResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetFrontendPermissionDetailResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/frontend/detail": {
+            "get": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "æ ¹æ®æéåè·ååç«¯èåè¯¦æ",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetFrontendPermissionDetailResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetFrontendPermissionDetailResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetFrontendPermissionDetailResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/permission/backend/detail/{id}": {
+            "get": {
+                "tags": [
+                    "Permission"
+                ],
+                "summary": "è·ååç«¯æ¥å£è¯¦æ",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetBackEndPermissionDetailResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetBackEndPermissionDetailResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetBackEndPermissionDetailResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/role/list": {
+            "get": {
+                "tags": [
+                    "Role"
+                ],
+                "summary": "åé¡µè·åç³»ç»è§è²",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "åå­",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pageIndex",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "isDesc",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResponseItemPageableResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResponseItemPageableResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResponseItemPageableResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/role/add": {
+            "post": {
+                "tags": [
+                    "Role"
+                ],
+                "summary": "æ·»å è§è²",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddRoleRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddRoleRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddRoleRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddRoleRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/role/update": {
+            "post": {
+                "tags": [
+                    "Role"
+                ],
+                "summary": "ä¿®æ¹è§è²",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateRoleRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateRoleRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateRoleRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateRoleRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/role/delete/{id}": {
+            "post": {
+                "tags": [
+                    "Role"
+                ],
+                "summary": "å é¤ç³»ç»è§è²",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/role/detail/{id}": {
+            "get": {
+                "tags": [
+                    "Role"
+                ],
+                "summary": "è·åè§è²è¯¦æ",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleDetailResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleDetailResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleDetailResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/identity/role/alllist": {
+            "get": {
+                "tags": [
+                    "Role"
+                ],
+                "summary": "ææè§è²",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AddRoleRequest": {
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "åå­"
+                    },
+                    "description": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æè¿°",
+                        "nullable": true
+                    },
+                    "apiPermissionIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    },
+                    "uiPermissionIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ChangePasswordRequest": {
+                "required": [
+                    "newPassword",
+                    "ticket"
+                ],
+                "type": "object",
+                "properties": {
+                    "verityCodeType": {
+                        "$ref": "#/components/schemas/VerityCodeType"
+                    },
+                    "ticket": {
+                        "type": "string"
+                    },
+                    "newPassword": {
+                        "type": "string",
+                        "description": "æ°å¯ç "
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CheckPermissionRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "æéåç§°",
+                        "nullable": true
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/PermissionType"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetBackEndPermissionDetailResponse": {
+                "required": [
+                    "displayName",
+                    "name",
+                    "system"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "å¦ææ¯æ´æ°å°±ä¸è¦ä¼ è¿ä¸ªå­æ®µ",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "æéçåç§°ï¼å¯ä¸è¡¨ç¤ºï¼"
+                    },
+                    "route": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æéçè·¯ç±",
+                        "nullable": true
+                    },
+                    "displayName": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "æéçæ¾ç¤ºåç§°"
+                    },
+                    "description": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æè¿°",
+                        "nullable": true
+                    },
+                    "icon": {
+                        "type": "string",
+                        "description": "å¾æ ",
+                        "nullable": true
+                    },
+                    "parentId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "system": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/PermissionType"
+                    },
+                    "sort": {
+                        "type": "integer",
+                        "description": "æåº",
+                        "format": "int32"
+                    },
+                    "enable": {
+                        "type": "boolean"
+                    },
+                    "relationRoles": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "å³èçè§è²",
+                        "nullable": true
+                    },
+                    "relationMenus": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "å³èçèå",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetEmailTokenRequest": {
+                "required": [
+                    "code"
+                ],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "éªè¯ç "
+                    },
+                    "isSaveSecondValidStatus": {
+                        "type": "boolean",
+                        "description": "æ¯å¦ä¿å­2æ¬¡æ ¡éªç¶æï¼ä¿¡ä»»å½åè®¾å¤"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetFrontendPermissionDetailResponse": {
+                "required": [
+                    "displayName",
+                    "name",
+                    "system"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "å¦ææ¯æ´æ°å°±ä¸è¦ä¼ è¿ä¸ªå­æ®µ",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "æéçåç§°ï¼å¯ä¸è¡¨ç¤ºï¼"
+                    },
+                    "route": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æéçè·¯ç±",
+                        "nullable": true
+                    },
+                    "displayName": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "æéçæ¾ç¤ºåç§°"
+                    },
+                    "description": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æè¿°",
+                        "nullable": true
+                    },
+                    "icon": {
+                        "type": "string",
+                        "description": "å¾æ ",
+                        "nullable": true
+                    },
+                    "parentId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "system": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/PermissionType"
+                    },
+                    "sort": {
+                        "type": "integer",
+                        "description": "æåº",
+                        "format": "int32"
+                    },
+                    "enable": {
+                        "type": "boolean"
+                    },
+                    "relationRoles": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "å³èçè§è²",
+                        "nullable": true
+                    },
+                    "relationApis": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RelationApiPermissionResponse"
+                        },
+                        "description": "å³èçApi",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetRoleDetailResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "åå­",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "æè¿°",
+                        "nullable": true
+                    },
+                    "apiPermissions": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    },
+                    "frontPermissions": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    },
+                    "member": {
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LoginSecondValidStatus": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "integer",
+                        "description": "1=å¿½ç¥äºæ¬¡æ ¡éªï¼2=éè¦äºæ¬¡æ ¡éª",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "MenuPermissionResponseItem": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sort": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "enable": {
+                        "type": "boolean"
+                    },
+                    "system": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "route": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "icon": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PermissionDto": {
+                "required": [
+                    "displayName",
+                    "name",
+                    "system"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "å¦ææ¯æ´æ°å°±ä¸è¦ä¼ è¿ä¸ªå­æ®µ",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "æéçåç§°ï¼å¯ä¸è¡¨ç¤ºï¼"
+                    },
+                    "route": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æéçè·¯ç±",
+                        "nullable": true
+                    },
+                    "displayName": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "æéçæ¾ç¤ºåç§°"
+                    },
+                    "description": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æè¿°",
+                        "nullable": true
+                    },
+                    "icon": {
+                        "type": "string",
+                        "description": "å¾æ ",
+                        "nullable": true
+                    },
+                    "parentId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "system": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/PermissionType"
+                    },
+                    "sort": {
+                        "type": "integer",
+                        "description": "æåº",
+                        "format": "int32"
+                    },
+                    "enable": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PermissionDtoPageableResult": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PermissionDto"
+                        },
+                        "nullable": true
+                    },
+                    "totalCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PermissionType": {
+                "enum": [
+                    "1 - Api",
+                    "2 - Data",
+                    "3 - UI",
+                    "4 - Menu"
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "RelationApiPermissionResponse": {
+                "type": "object",
+                "properties": {
+                    "isRequired": {
+                        "type": "boolean"
+                    },
+                    "apiPermission": {
+                        "$ref": "#/components/schemas/PermissionDto"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RoleResponseItem": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "userCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "permissionCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RoleResponseItemPageableResult": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RoleResponseItem"
+                        },
+                        "nullable": true
+                    },
+                    "totalCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SaveFrontPermissionRelationApi": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "apiRoute": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "isRequired": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SaveFrontPermissionRequest": {
+                "required": [
+                    "displayName",
+                    "name",
+                    "system"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "å¦ææ¯æ´æ°å°±ä¸è¦ä¼ è¿ä¸ªå­æ®µ",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "æéçåç§°ï¼å¯ä¸è¡¨ç¤ºï¼"
+                    },
+                    "route": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æéçè·¯ç±",
+                        "nullable": true
+                    },
+                    "displayName": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "æéçæ¾ç¤ºåç§°"
+                    },
+                    "description": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æè¿°",
+                        "nullable": true
+                    },
+                    "icon": {
+                        "type": "string",
+                        "description": "å¾æ ",
+                        "nullable": true
+                    },
+                    "parentId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "system": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/PermissionType"
+                    },
+                    "sort": {
+                        "type": "integer",
+                        "description": "æåº",
+                        "format": "int32"
+                    },
+                    "enable": {
+                        "type": "boolean"
+                    },
+                    "parentName": {
+                        "type": "string",
+                        "description": "ä¸çº§è·¯ç±åç§°",
+                        "nullable": true
+                    },
+                    "relationApis": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SaveFrontPermissionRelationApi"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SetLoginSecondValidRequest": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "code": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SignInRequest": {
+                "required": [
+                    "password",
+                    "userName"
+                ],
+                "type": "object",
+                "properties": {
+                    "userName": {
+                        "type": "string",
+                        "description": "ç¨æ·å"
+                    },
+                    "password": {
+                        "maxLength": 20,
+                        "type": "string",
+                        "description": "å¯ç "
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SignInResponse": {
+                "type": "object",
+                "properties": {
+                    "accessToken": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "åå­",
+                        "nullable": true
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "å¤´åå°å",
+                        "nullable": true
+                    },
+                    "menuPermissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MenuPermissionResponseItem"
+                        },
+                        "nullable": true
+                    },
+                    "uiPermissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UIPermissionResponseItem"
+                        },
+                        "nullable": true
+                    },
+                    "expires": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SimpleUpdateFrontPermissionRequest": {
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "æéçåç§°ï¼å¯ä¸è¡¨ç¤ºï¼"
+                    },
+                    "relationApis": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SaveFrontPermissionRelationApi"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UIPermissionResponseItem": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sort": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "enable": {
+                        "type": "boolean"
+                    },
+                    "system": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "icon": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UpdateRoleRequest": {
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "åå­"
+                    },
+                    "description": {
+                        "maxLength": 256,
+                        "type": "string",
+                        "description": "æè¿°",
+                        "nullable": true
+                    },
+                    "apiPermissionIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    },
+                    "uiPermissionIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "VerityCodeType": {
+                "enum": [
+                    "1 - Mail",
+                    "2 - Mobile"
+                ],
+                "type": "integer",
+                "format": "int32"
+            }
+        },
+        "securitySchemes": {
+            "Bearer": {
+                "type": "apiKey",
+                "description": "Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "Bearer": []
+        }
+    ]
+}

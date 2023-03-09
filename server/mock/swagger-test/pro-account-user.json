@@ -1,0 +1,3369 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "èªè¥çè´¦æ·ç®¡ç-user",
+        "version": "v1"
+    },
+    "paths": {
+        "/api/v1/pro/account/info/list": {
+            "get": {
+                "tags": [
+                    "AccountInfo"
+                ],
+                "summary": "è·åè´¦æ·åè¡¨",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "è´¦æ·ç±»å 0ï¼å¨é¨ 1ï¼çå®è´¦æ·  2ï¼demoè´¦æ·  3ï¼é»è®¤è´¦æ·",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/info/default/switch/{account}": {
+            "post": {
+                "tags": [
+                    "AccountInfo"
+                ],
+                "summary": "åæ¢é»è®¤è´¦æ·",
+                "parameters": [
+                    {
+                        "name": "account",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/info/listandstatus": {
+            "get": {
+                "tags": [
+                    "AccountInfo"
+                ],
+                "summary": "è·åè´¦æ·åè¡¨åç¨æ·èµæå®¡æ ¸ç¶æ",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAccountListResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAccountListResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAccountListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/info/{account}": {
+            "get": {
+                "tags": [
+                    "AccountInfo"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/info/protocol/{account}": {
+            "get": {
+                "tags": [
+                    "AccountInfo"
+                ],
+                "summary": "è·ååè®® ï¼è¿åjsonæ ¼å¼åè®®",
+                "parameters": [
+                    {
+                        "name": "account",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/info/real/exist": {
+            "get": {
+                "tags": [
+                    "AccountInfo"
+                ],
+                "summary": "æ¯å¦æå®çè´¦æ·",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/bankcard/add": {
+            "post": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "æ·»å é¶è¡å¡",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddBankCardRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddBankCardRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddBankCardRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddBankCardRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/bankcard/add/usdt": {
+            "post": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "æ·»å usdtå°å",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddUSDTRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddUSDTRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddUSDTRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddUSDTRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/bankcard/add/pm": {
+            "post": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "æ·»å PMé±å",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddPerfectMoneyRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddPerfectMoneyRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddPerfectMoneyRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddPerfectMoneyRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/bankcard/remove/{id}": {
+            "post": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "ç§»é¤é¶è¡å¡",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/bankcard/list": {
+            "get": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "è·åé¶è¡å¡åè¡¨ï¼åå«å¾å®¡æ ¸ï¼",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetBankCardListResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetBankCardListResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetBankCardListResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/bankcard/list/{currency}": {
+            "get": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "æ ¹æ®å¸ç§è·åé¶è¡å¡åè¡¨",
+                "parameters": [
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BankCardDto"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BankCardDto"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/BankCardDto"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/bankcard/modify/{id}": {
+            "post": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "ä¿®æ¹é¶è¡å¡",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddBankCardRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddBankCardRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddBankCardRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddBankCardRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/bankcard/existswithdrawaudit/{id}": {
+            "post": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "æ¯å¦å­å¨å®¡æ ¸ä¸­åºé",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/bankcard/list/usdt/chains": {
+            "get": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "è·åusdtçé¾(ç±»å)åè¡¨",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/config": {
+            "get": {
+                "tags": [
+                    "Config"
+                ],
+                "summary": "è·åè´¦æ·ç¸å³çéç½®",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ConfigResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ConfigResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ConfigResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/demo/create": {
+            "post": {
+                "tags": [
+                    "DemoAccount"
+                ],
+                "summary": "åå»ºdemoè´¦æ·",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/demo/info/accountno": {
+            "get": {
+                "tags": [
+                    "DemoAccount"
+                ],
+                "summary": "è·ådemoè´¦æ·å·",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/follower/create": {
+            "post": {
+                "tags": [
+                    "FollowerAccount"
+                ],
+                "summary": "åå»ºè·éè´¦æ·",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateFollowerAccountRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateFollowerAccountRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateFollowerAccountRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateFollowerAccountRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/institution/profile/commit": {
+            "post": {
+                "tags": [
+                    "InstitutionProfile"
+                ],
+                "summary": "æäº¤èµæ",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitInstitutionProfileRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitInstitutionProfileRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitInstitutionProfileRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitInstitutionProfileRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/institution/profile/apply": {
+            "post": {
+                "tags": [
+                    "InstitutionProfile"
+                ],
+                "summary": "ç³è¯·èµæå®¡æ ¸",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApplyAuditResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApplyAuditResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApplyAuditResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/institution/profile/status": {
+            "get": {
+                "tags": [
+                    "InstitutionProfile"
+                ],
+                "summary": "è·åææ°çç¨æ·èµæå®¡æ ¸ç¶æ",
+                "parameters": [
+                    {
+                        "name": "needContent",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetInstitutionProfileAuditStatusResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetInstitutionProfileAuditStatusResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetInstitutionProfileAuditStatusResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/institution/profile/detail": {
+            "get": {
+                "tags": [
+                    "InstitutionProfile"
+                ],
+                "summary": "è·åç¨æ·èµæè¯¦æ",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/real/create": {
+            "post": {
+                "tags": [
+                    "RealAccount"
+                ],
+                "summary": "åå»ºçå®è´¦æ·",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateRealAccountRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateRealAccountRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateRealAccountRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateRealAccountRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DefaultCreateRealAccountResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DefaultCreateRealAccountResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DefaultCreateRealAccountResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/real/modify/password": {
+            "post": {
+                "tags": [
+                    "RealAccount"
+                ],
+                "summary": "ä¿®æ¹äº¤æè´¦æ·å¯ç ",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangedPasswordRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangedPasswordRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangedPasswordRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangedPasswordRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/real/summary": {
+            "get": {
+                "tags": [
+                    "RealAccount"
+                ],
+                "summary": "è·åè´¦æ·ä½é¢ä¿¡æ¯(çå®è´¦æ·æ°/æä»å/ä½é¢)",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SimpleAccountSummary"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SimpleAccountSummary"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SimpleAccountSummary"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/real/type/list": {
+            "get": {
+                "tags": [
+                    "RealAccount"
+                ],
+                "summary": "è·åè´¦æ·ç±»ååè¡¨",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccountType"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccountType"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccountType"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/real/type/category/list": {
+            "get": {
+                "tags": [
+                    "RealAccount"
+                ],
+                "summary": "è·åè´¦æ·ç±»ååç»åè¡¨",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/real/currency/list": {
+            "get": {
+                "tags": [
+                    "RealAccount"
+                ],
+                "summary": "è·åèµéå¸ç§åè¡¨",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/real/currency/current": {
+            "get": {
+                "tags": [
+                    "RealAccount"
+                ],
+                "summary": "è·åç¨æ·æå¨å°åºçå¸ç§",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/real/exchangerate/list": {
+            "get": {
+                "tags": [
+                    "RealAccount"
+                ],
+                "summary": "è·åæ±çåè¡¨",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExchangeRate"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExchangeRate"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExchangeRate"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/real/prime/create": {
+            "post": {
+                "tags": [
+                    "RealAccount"
+                ],
+                "summary": "åå»ºçå®è´¦æ·",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuickAccountRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuickAccountRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuickAccountRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/QuickAccountRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DefaultCreateRealAccountResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DefaultCreateRealAccountResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DefaultCreateRealAccountResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/region/{code}": {
+            "get": {
+                "tags": [
+                    "Region"
+                ],
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Region"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Region"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Region"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/report/monthly": {
+            "post": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "è·åææ¥åè¡¨",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetMonthlyListRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetMonthlyListRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetMonthlyListRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GetMonthlyListRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetMonthlyListResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetMonthlyListResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetMonthlyListResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/profile/commit": {
+            "post": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "æäº¤èµæ",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitUserProfileRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitUserProfileRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitUserProfileRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitUserProfileRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/profile/commit/batch": {
+            "post": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "æ¹éæäº¤èµæ",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BatchCommitUserProfileRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BatchCommitUserProfileRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BatchCommitUserProfileRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BatchCommitUserProfileRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/profile/apply": {
+            "post": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "ç³è¯·èµæå®¡æ ¸",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApplyAuditResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApplyAuditResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApplyAuditResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/profile/detail": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "è·åç¨æ·èµæè¯¦æ",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/profile/status": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "è·åæåä¸ä¸ªç¨æ·èµæå®¡æ ¸ç¶æ",
+                "parameters": [
+                    {
+                        "name": "needContent",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileAuditStatusResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileAuditStatusResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileAuditStatusResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/profile/user/swapfree/{userId}": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserSwapFreeResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserSwapFreeResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserSwapFreeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/profile/npwp/apply": {
+            "post": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "å®¡æ ¸ç¨å¡ä¿¡æ¯",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitNpwpRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitNpwpRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitNpwpRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommitNpwpRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/profile/demo/status": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "è·åç¨æ·èµæå®¡æ ¸ç¶æ/demoäº¤æç¶æ",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileStatusAndDemoTradeResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileStatusAndDemoTradeResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileStatusAndDemoTradeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/pro/account/profile/simpleinfo": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "header",
+                        "description": "ç¨æ·Idï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "userInfo",
+                        "in": "header",
+                        "description": "ç¨æ·ä¿¡æ¯ æ ¼å¼ï¼Email|Nation|Mobile|UserRole å¦ï¼123@qq.com|86|18152365425|1ï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileInfo"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileInfo"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetProfileInfo"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AccountRole": {
+                "enum": [
+                    "1 - Normal",
+                    "2 - Signal",
+                    "3 - Follower"
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "AccountServer": {
+                "type": "object",
+                "properties": {
+                    "isDemo": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AccountSummary": {
+                "type": "object",
+                "properties": {
+                    "serverId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "equity": {
+                        "type": "number",
+                        "description": "åå¼",
+                        "format": "double"
+                    },
+                    "balance": {
+                        "type": "number",
+                        "description": "ä½é¢",
+                        "format": "double"
+                    },
+                    "credit": {
+                        "type": "number",
+                        "description": "ä¿¡ç¨é",
+                        "format": "double"
+                    },
+                    "floating": {
+                        "type": "number",
+                        "description": "æµ®å¨çäº åå¼-ä½é¢",
+                        "format": "double"
+                    },
+                    "deposit": {
+                        "type": "number",
+                        "description": "å¥é",
+                        "format": "double"
+                    },
+                    "netDeposit": {
+                        "type": "number",
+                        "description": "åå¥é å¥é-åºé",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "withdrawal": {
+                        "type": "number",
+                        "description": "åºé",
+                        "format": "double"
+                    },
+                    "processingWithdrawal": {
+                        "type": "number",
+                        "description": "å¤çä¸­åºé",
+                        "format": "double"
+                    },
+                    "totalWithdrawal": {
+                        "type": "number",
+                        "description": "æ»åºé",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "lots": {
+                        "type": "number",
+                        "description": "äº¤æææ°",
+                        "format": "double"
+                    },
+                    "profit": {
+                        "type": "number",
+                        "description": "å¹³ä»çäº",
+                        "format": "double"
+                    },
+                    "trades": {
+                        "type": "number",
+                        "description": "äº¤æç¬æ°",
+                        "format": "double"
+                    },
+                    "lastTradeTime": {
+                        "type": "integer",
+                        "description": "æåäº¤ææ¶é´",
+                        "format": "int64"
+                    },
+                    "commission": {
+                        "type": "number",
+                        "description": "ä½£é",
+                        "format": "double"
+                    },
+                    "swaps": {
+                        "type": "number",
+                        "description": "æç»­è´¹",
+                        "format": "double"
+                    },
+                    "adjustment": {
+                        "type": "number",
+                        "description": "çä»å½0çéé¢",
+                        "format": "double"
+                    },
+                    "margin": {
+                        "type": "number",
+                        "description": "ä¿è¯é",
+                        "format": "double"
+                    },
+                    "marginLevel": {
+                        "type": "number",
+                        "description": "ä¿è¯éæ¯ä¾",
+                        "format": "double"
+                    },
+                    "freeMargin": {
+                        "type": "number",
+                        "description": "å¯ç¨ä¿è¯é",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AccountType": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "category": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "spread": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "spreadType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "commission": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "minFunding": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "isDefault": {
+                        "type": "boolean"
+                    },
+                    "leverage": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "allowCreation": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddBankCardRequest": {
+                "type": "object",
+                "properties": {
+                    "holder": {
+                        "type": "string",
+                        "description": "æå¡äºº",
+                        "nullable": true
+                    },
+                    "bankName": {
+                        "type": "string",
+                        "description": "é¶è¡åç§°",
+                        "nullable": true
+                    },
+                    "bankAddress": {
+                        "type": "string",
+                        "description": "é¶è¡å¡å°å",
+                        "nullable": true
+                    },
+                    "bankCardNo": {
+                        "type": "string",
+                        "description": "å¡å·",
+                        "nullable": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "æç°è´§å¸ï¼USDTãUSDãRMB ç­ï¼",
+                        "nullable": true
+                    },
+                    "swiftCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "å½å®¶ä»£ç ",
+                        "nullable": true
+                    },
+                    "phone": {
+                        "type": "string",
+                        "description": "é¶è¡é¢çææºå·",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "integer",
+                        "description": "é¶è¡å¡ç±»å ä¿¡ç¨å¡ è®°è´¦å¡ 10.å¯¹å¬è´¦æ·",
+                        "format": "int32"
+                    },
+                    "otherType": {
+                        "type": "string",
+                        "description": "å¶ä»çé¶è¡å¡ç±»åï¼typeä¸º0æ¯éè¦è¾å¥OtherType",
+                        "nullable": true
+                    },
+                    "imageUrl": {
+                        "type": "string",
+                        "description": "é¶è¡å¡å¾çå°å",
+                        "nullable": true
+                    },
+                    "paymentMethod": {
+                        "$ref": "#/components/schemas/PaymentMethod"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddPerfectMoneyRequest": {
+                "required": [
+                    "ticket"
+                ],
+                "type": "object",
+                "properties": {
+                    "verityCodeType": {
+                        "$ref": "#/components/schemas/VerityCodeType"
+                    },
+                    "ticket": {
+                        "type": "string"
+                    },
+                    "accountName": {
+                        "type": "string",
+                        "description": "è´¦æ·åç§°",
+                        "nullable": true
+                    },
+                    "accountNumber": {
+                        "type": "string",
+                        "description": "è´¦æ·å·",
+                        "nullable": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "å¸ç§ï¼USDTãUSDãRMB ç­ï¼",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddUSDTRequest": {
+                "required": [
+                    "ticket"
+                ],
+                "type": "object",
+                "properties": {
+                    "verityCodeType": {
+                        "$ref": "#/components/schemas/VerityCodeType"
+                    },
+                    "ticket": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "USDTå°å",
+                        "nullable": true
+                    },
+                    "qrCodeImageUrl": {
+                        "type": "string",
+                        "description": "äºç»´ç å¾çå°å",
+                        "nullable": true
+                    },
+                    "chainCategory": {
+                        "type": "string",
+                        "description": "é¾ç±»å",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ApplyAuditResponse": {
+                "type": "object",
+                "properties": {
+                    "isDemoAccountTraded": {
+                        "type": "boolean",
+                        "description": "demoè´¦æ·æ¯å¦å·²ç»äº¤æ"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "BankCardBaseInfo": {
+                "type": "object",
+                "properties": {
+                    "holder": {
+                        "type": "string",
+                        "description": "æå¡äºº",
+                        "nullable": true
+                    },
+                    "bankName": {
+                        "type": "string",
+                        "description": "é¶è¡åç§°",
+                        "nullable": true
+                    },
+                    "bankAddress": {
+                        "type": "string",
+                        "description": "é¶è¡å¡å°å",
+                        "nullable": true
+                    },
+                    "bankCardNo": {
+                        "type": "string",
+                        "description": "å¡å·",
+                        "nullable": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "æç°è´§å¸ï¼USDTãUSDãRMB ç­ï¼",
+                        "nullable": true
+                    },
+                    "swiftCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "å½å®¶ä»£ç ",
+                        "nullable": true
+                    },
+                    "phone": {
+                        "type": "string",
+                        "description": "é¶è¡é¢çææºå·",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "integer",
+                        "description": "é¶è¡å¡ç±»å ä¿¡ç¨å¡ è®°è´¦å¡ 10.å¯¹å¬è´¦æ·",
+                        "format": "int32"
+                    },
+                    "otherType": {
+                        "type": "string",
+                        "description": "å¶ä»çé¶è¡å¡ç±»åï¼typeä¸º0æ¯éè¦è¾å¥OtherType",
+                        "nullable": true
+                    },
+                    "imageUrl": {
+                        "type": "string",
+                        "description": "é¶è¡å¡å¾çå°å",
+                        "nullable": true
+                    },
+                    "paymentMethod": {
+                        "$ref": "#/components/schemas/PaymentMethod"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "é¶è¡å¡åºç¡ä¿¡æ¯"
+            },
+            "BankCardDto": {
+                "type": "object",
+                "properties": {
+                    "holder": {
+                        "type": "string",
+                        "description": "æå¡äºº",
+                        "nullable": true
+                    },
+                    "bankName": {
+                        "type": "string",
+                        "description": "é¶è¡åç§°",
+                        "nullable": true
+                    },
+                    "bankAddress": {
+                        "type": "string",
+                        "description": "é¶è¡å¡å°å",
+                        "nullable": true
+                    },
+                    "bankCardNo": {
+                        "type": "string",
+                        "description": "å¡å·",
+                        "nullable": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "æç°è´§å¸ï¼USDTãUSDãRMB ç­ï¼",
+                        "nullable": true
+                    },
+                    "swiftCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "å½å®¶ä»£ç ",
+                        "nullable": true
+                    },
+                    "phone": {
+                        "type": "string",
+                        "description": "é¶è¡é¢çææºå·",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "integer",
+                        "description": "é¶è¡å¡ç±»å ä¿¡ç¨å¡ è®°è´¦å¡ 10.å¯¹å¬è´¦æ·",
+                        "format": "int32"
+                    },
+                    "otherType": {
+                        "type": "string",
+                        "description": "å¶ä»çé¶è¡å¡ç±»åï¼typeä¸º0æ¯éè¦è¾å¥OtherType",
+                        "nullable": true
+                    },
+                    "imageUrl": {
+                        "type": "string",
+                        "description": "é¶è¡å¡å¾çå°å",
+                        "nullable": true
+                    },
+                    "paymentMethod": {
+                        "$ref": "#/components/schemas/PaymentMethod"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "BatchCommitUserProfileRequest": {
+                "type": "object",
+                "properties": {
+                    "profiles": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "nullable": true
+                        },
+                        "nullable": true
+                    },
+                    "step": {
+                        "type": "number",
+                        "description": "æä½æ­¥éª¤",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ChangedPasswordRequest": {
+                "required": [
+                    "account",
+                    "newPassword",
+                    "ticket"
+                ],
+                "type": "object",
+                "properties": {
+                    "verityCodeType": {
+                        "$ref": "#/components/schemas/VerityCodeType"
+                    },
+                    "ticket": {
+                        "type": "string"
+                    },
+                    "account": {
+                        "maxLength": 32,
+                        "type": "string",
+                        "description": "è´¦æ·"
+                    },
+                    "newPassword": {
+                        "maxLength": 32,
+                        "pattern": "^(?![a-z]+$)(?![A-Z]+$)(?![0-9]+$)(?![!-/:-@[-`]+$)[!-]{8,15}$",
+                        "type": "string",
+                        "description": "æ°å¯ç "
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CommitInstitutionProfileRequest": {
+                "type": "object",
+                "properties": {
+                    "profiles": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "nullable": true
+                        },
+                        "nullable": true
+                    },
+                    "step": {
+                        "type": "number",
+                        "description": "æä½æ­¥éª¤",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CommitNpwpRequest": {
+                "required": [
+                    "npwpNumber",
+                    "photo"
+                ],
+                "type": "object",
+                "properties": {
+                    "photo": {
+                        "type": "string",
+                        "description": "ç¨å¡å¾ç"
+                    },
+                    "npwpNumber": {
+                        "maxLength": 15,
+                        "minLength": 15,
+                        "type": "string",
+                        "description": "ç¨å¡å·"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CommitUserProfileRequest": {
+                "required": [
+                    "content",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "maxLength": 16,
+                        "type": "string",
+                        "description": "èµæåç§°"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "èµæåå®¹"
+                    },
+                    "step": {
+                        "type": "number",
+                        "description": "æä½æ­¥éª¤",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ConfigResponse": {
+                "type": "object",
+                "properties": {
+                    "bankCardMaxQuantity": {
+                        "type": "integer",
+                        "description": "é¶è¡å¡æå¤§æ°é",
+                        "format": "int32"
+                    },
+                    "realAccountMaxQuantity": {
+                        "type": "integer",
+                        "description": "çå®è´¦æ·æå¤§æ°é",
+                        "format": "int32"
+                    },
+                    "tradeCurrency": {
+                        "type": "string",
+                        "description": "äº¤æå¸ç§",
+                        "nullable": true
+                    },
+                    "availableLeverages": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "description": "å¯ç¨æ æ",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CreateFollowerAccountRequest": {
+                "type": "object",
+                "properties": {
+                    "signalUserId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "signalAccount": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CreateRealAccountRequest": {
+                "required": [
+                    "accountType",
+                    "password",
+                    "protocol"
+                ],
+                "type": "object",
+                "properties": {
+                    "accountType": {
+                        "type": "string",
+                        "description": "è´¦æ·ç±»ååç±» æ åè´¦æ·ãä¸ä¸è´¦æ·"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "å¸ç§",
+                        "nullable": true
+                    },
+                    "exchangeRate": {
+                        "type": "number",
+                        "description": "æ±ç\r\nå¸ç§åç¾åçæ±ç\r\nå¦ å¸ç§æ¯å°å°¼ç¾ æ±çæ¯10000",
+                        "format": "double"
+                    },
+                    "password": {
+                        "pattern": "^(?![a-z]+$)(?![A-Z]+$)(?![0-9]+$)(?![!-/:-@[-`]+$)[!-]{8,15}$",
+                        "type": "string",
+                        "description": "å¯ç "
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "description": "å¼æ·åè®® jsonæ ¼å¼"
+                    },
+                    "leverage": {
+                        "type": "integer",
+                        "description": "æ æ",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CustomerType": {
+                "enum": [
+                    "0 - None",
+                    "1 - Retail",
+                    "2 - Major"
+                ],
+                "type": "integer",
+                "description": "å®¢æ·ç±»å",
+                "format": "int32"
+            },
+            "DefaultCreateRealAccountResult": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": "string",
+                        "description": "è´¦æ·",
+                        "nullable": true
+                    },
+                    "accountType": {
+                        "$ref": "#/components/schemas/AccountType"
+                    },
+                    "server": {
+                        "$ref": "#/components/schemas/AccountServer"
+                    },
+                    "tradingPlatform": {
+                        "type": "string",
+                        "description": "äº¤æå¹³å°",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "leverage": {
+                        "type": "integer",
+                        "description": "æ æ",
+                        "format": "int32"
+                    },
+                    "setting": {
+                        "$ref": "#/components/schemas/TradeAccountSetting"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ExchangeRate": {
+                "type": "object",
+                "properties": {
+                    "from": {
+                        "type": "string",
+                        "description": "åå§è´§å¸",
+                        "nullable": true
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": "ç®æ è´§å¸",
+                        "nullable": true
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "æ±çå¼",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "æ±ç\r\nåå§è´§å¸è½¬æ¢æç®æ è´§å¸çæ±çå¼\r\nå¦ å°å°¼ç¾è½¬æ¢æç¾åçæ±çå¼æ¯14000"
+            },
+            "GetAccountListResponse": {
+                "type": "object",
+                "properties": {
+                    "lastSubmitTime": {
+                        "type": "integer",
+                        "description": "æåæäº¤å®¡æ¹æ¶é´  å¯ç©º",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "æç»åå ",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "ç¨æ·èµæçç¶æ 0ãèµæå®¡æ ¸éè¿ 1ãæªç³è¯·  2ãèç¨¿ï¼èµææäº¤ä¸­ï¼ 3ãèµæå®¡æ ¸ä¸­ 4ãèµæå®¡æ ¸è¢«æç»",
+                        "format": "int32"
+                    },
+                    "accountAuditStatus": {
+                        "type": "integer",
+                        "description": "è´¦æ·å®¡æ ¸ç¶æ 0ãå®¡æ ¸éè¿ 1ãæªç³è¯· 2ãå®¡æ ¸ä¸­ 3ãå®¡æ ¸è¢«æç»",
+                        "format": "int32"
+                    },
+                    "npwpStatus": {
+                        "type": "integer",
+                        "description": "npwpå®¡æ ¸ç¶æ:0-å·²éè¿,1-æªæäº¤,2-å¾å®¡æ ¸,3-æªéè¿",
+                        "format": "int32"
+                    },
+                    "customerType": {
+                        "$ref": "#/components/schemas/CustomerType"
+                    },
+                    "canCreateAccount": {
+                        "type": "boolean",
+                        "description": "æ¯å¦å¯ä»¥åå»ºè´¦æ·",
+                        "readOnly": true
+                    },
+                    "accounts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TradeAccountQueryModel"
+                        },
+                        "description": "è´¦æ·åè¡¨",
+                        "nullable": true
+                    },
+                    "isDeposit": {
+                        "type": "boolean",
+                        "description": "æ¯å¦å¥é"
+                    },
+                    "isTrade": {
+                        "type": "boolean",
+                        "description": "æ¯å¦äº¤æ"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetBankCardListResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "applyTime": {
+                        "type": "integer",
+                        "description": "ç³è¯·æ¶é´",
+                        "format": "int64"
+                    },
+                    "completeTime": {
+                        "type": "integer",
+                        "description": "å®ææ¶é´",
+                        "format": "int64"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "0ãæ­£å¸¸  1ãå®¡æ ¸ä¸­ 2ãå®¡æ ¸æç»",
+                        "format": "int32"
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "æç»åå ",
+                        "nullable": true
+                    },
+                    "info": {
+                        "$ref": "#/components/schemas/BankCardBaseInfo"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetInstitutionProfileAuditStatusResponse": {
+                "type": "object",
+                "properties": {
+                    "lastSubmitTime": {
+                        "type": "integer",
+                        "description": "æåæäº¤å®¡æ¹æ¶é´  å¯ç©º",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "æç»åå ",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "ç¨æ·èµæçç¶æ 0ãèµæå®¡æ ¸éè¿ 1ãæªç³è¯·  2ãèç¨¿ï¼èµææäº¤ä¸­ï¼ 3ãèµæå®¡æ ¸ä¸­ 4ãèµæå®¡æ ¸è¢«æç»",
+                        "format": "int32"
+                    },
+                    "accountAuditStatus": {
+                        "type": "integer",
+                        "description": "è´¦æ·å®¡æ ¸ç¶æ 0ãå®¡æ ¸éè¿ 1ãæªç³è¯· 2ãå®¡æ ¸ä¸­ 3ãå®¡æ ¸è¢«æç»",
+                        "format": "int32"
+                    },
+                    "npwpStatus": {
+                        "type": "integer",
+                        "description": "npwpå®¡æ ¸ç¶æ:0-å·²éè¿,1-æªæäº¤,2-å¾å®¡æ ¸,3-æªéè¿",
+                        "format": "int32"
+                    },
+                    "customerType": {
+                        "$ref": "#/components/schemas/CustomerType"
+                    },
+                    "canCreateAccount": {
+                        "type": "boolean",
+                        "description": "æ¯å¦å¯ä»¥åå»ºè´¦æ·",
+                        "readOnly": true
+                    },
+                    "userProfile": {
+                        "type": "string",
+                        "description": "ç¨æ·èµæ",
+                        "nullable": true
+                    },
+                    "step": {
+                        "type": "number",
+                        "description": "å½åå®¡æ ¸æ­¥éª¤",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "realAccountCount": {
+                        "type": "integer",
+                        "description": "çå®è´¦æ·æ°é",
+                        "format": "int32"
+                    },
+                    "maxRealAccountCount": {
+                        "type": "integer",
+                        "description": "æå¤§çå®è´¦æ·æ°é",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "AccountStatusModelä¸­éè¦å å¥åè®®ç¶æçè·å"
+            },
+            "GetMonthlyListRequest": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "monthBegin": {
+                        "type": "integer",
+                        "description": "å¼å§æä»½ 202206",
+                        "format": "int32"
+                    },
+                    "monthEnd": {
+                        "type": "integer",
+                        "description": "ç»ææä»½ 202206",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetMonthlyListResponse": {
+                "type": "object",
+                "properties": {
+                    "month": {
+                        "type": "integer",
+                        "description": "æä»½",
+                        "format": "int32"
+                    },
+                    "reportTime": {
+                        "type": "string",
+                        "description": "æä»½",
+                        "format": "date-time",
+                        "readOnly": true
+                    },
+                    "fileUrl": {
+                        "type": "string",
+                        "description": "ææ¥æä»¶å°å",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetProfileAuditStatusResponse": {
+                "type": "object",
+                "properties": {
+                    "lastSubmitTime": {
+                        "type": "integer",
+                        "description": "æåæäº¤å®¡æ¹æ¶é´  å¯ç©º",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "æç»åå ",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "ç¨æ·èµæçç¶æ 0ãèµæå®¡æ ¸éè¿ 1ãæªç³è¯·  2ãèç¨¿ï¼èµææäº¤ä¸­ï¼ 3ãèµæå®¡æ ¸ä¸­ 4ãèµæå®¡æ ¸è¢«æç»",
+                        "format": "int32"
+                    },
+                    "accountAuditStatus": {
+                        "type": "integer",
+                        "description": "è´¦æ·å®¡æ ¸ç¶æ 0ãå®¡æ ¸éè¿ 1ãæªç³è¯· 2ãå®¡æ ¸ä¸­ 3ãå®¡æ ¸è¢«æç»",
+                        "format": "int32"
+                    },
+                    "npwpStatus": {
+                        "type": "integer",
+                        "description": "npwpå®¡æ ¸ç¶æ:0-å·²éè¿,1-æªæäº¤,2-å¾å®¡æ ¸,3-æªéè¿",
+                        "format": "int32"
+                    },
+                    "customerType": {
+                        "$ref": "#/components/schemas/CustomerType"
+                    },
+                    "canCreateAccount": {
+                        "type": "boolean",
+                        "description": "æ¯å¦å¯ä»¥åå»ºè´¦æ·",
+                        "readOnly": true
+                    },
+                    "userProfile": {
+                        "type": "string",
+                        "description": "ç¨æ·èµæ",
+                        "nullable": true
+                    },
+                    "step": {
+                        "type": "number",
+                        "description": "å®¡æ ¸èµæå¡«åæ­¥éª¤",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "realAccountCount": {
+                        "type": "integer",
+                        "description": "çå®è´¦æ·æ°é",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetProfileInfo": {
+                "type": "object",
+                "properties": {
+                    "customerType": {
+                        "$ref": "#/components/schemas/CustomerType"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetProfileStatusAndDemoTradeResponse": {
+                "type": "object",
+                "properties": {
+                    "lastSubmitTime": {
+                        "type": "integer",
+                        "description": "æåæäº¤å®¡æ¹æ¶é´  å¯ç©º",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "æç»åå ",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "ç¨æ·èµæçç¶æ 0ãèµæå®¡æ ¸éè¿ 1ãæªç³è¯·  2ãèç¨¿ï¼èµææäº¤ä¸­ï¼ 3ãèµæå®¡æ ¸ä¸­ 4ãèµæå®¡æ ¸è¢«æç»",
+                        "format": "int32"
+                    },
+                    "accountAuditStatus": {
+                        "type": "integer",
+                        "description": "è´¦æ·å®¡æ ¸ç¶æ 0ãå®¡æ ¸éè¿ 1ãæªç³è¯· 2ãå®¡æ ¸ä¸­ 3ãå®¡æ ¸è¢«æç»",
+                        "format": "int32"
+                    },
+                    "npwpStatus": {
+                        "type": "integer",
+                        "description": "npwpå®¡æ ¸ç¶æ:0-å·²éè¿,1-æªæäº¤,2-å¾å®¡æ ¸,3-æªéè¿",
+                        "format": "int32"
+                    },
+                    "customerType": {
+                        "$ref": "#/components/schemas/CustomerType"
+                    },
+                    "canCreateAccount": {
+                        "type": "boolean",
+                        "description": "æ¯å¦å¯ä»¥åå»ºè´¦æ·",
+                        "readOnly": true
+                    },
+                    "hasDemoTrade": {
+                        "type": "boolean",
+                        "description": "æ¯å¦ædemoäº¤æ:0-æªå®æ,1-å·²å®æ"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PaymentMethod": {
+                "enum": [
+                    "1 - BankCard",
+                    "2 - USDT",
+                    "3 - PerfectMoney"
+                ],
+                "type": "integer",
+                "description": "æ¯ä»æ¹å¼",
+                "format": "int32"
+            },
+            "QuickAccountRequest": {
+                "required": [
+                    "accountType"
+                ],
+                "type": "object",
+                "properties": {
+                    "accountType": {
+                        "type": "string",
+                        "description": "è´¦æ·ç±»ååç±» æ åè´¦æ·ãä¸ä¸è´¦æ·"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "å¸ç§",
+                        "nullable": true
+                    },
+                    "exchangeRate": {
+                        "type": "number",
+                        "description": "æ±ç\r\nå¸ç§åç¾åçæ±ç\r\nå¦ å¸ç§æ¯å°å°¼ç¾ æ±çæ¯10000",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Region": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parentCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SimpleAccountSummary": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "description": "ç¨æ·id",
+                        "format": "int32"
+                    },
+                    "realTotal": {
+                        "type": "integer",
+                        "description": "çå®è´¦æ·æ»æ°",
+                        "format": "int32"
+                    },
+                    "balance": {
+                        "type": "number",
+                        "description": "é±åä½é¢",
+                        "format": "double"
+                    },
+                    "position": {
+                        "type": "integer",
+                        "description": "æä»å",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TradeAccountQueryModel": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": "string",
+                        "description": "è´¦æ·",
+                        "nullable": true
+                    },
+                    "accountIndex": {
+                        "type": "integer",
+                        "description": "è´¦æ·åºå·",
+                        "format": "int32"
+                    },
+                    "accountType": {
+                        "$ref": "#/components/schemas/AccountType"
+                    },
+                    "tradeCurrency": {
+                        "type": "string",
+                        "description": "äº¤æå¸ç§",
+                        "nullable": true
+                    },
+                    "fundCurrency": {
+                        "type": "string",
+                        "description": "è´¦æ·å­åçå¸ç§",
+                        "nullable": true
+                    },
+                    "exchangeRate": {
+                        "type": "number",
+                        "description": "æ±ç",
+                        "format": "double"
+                    },
+                    "server": {
+                        "$ref": "#/components/schemas/AccountServer"
+                    },
+                    "leverage": {
+                        "type": "integer",
+                        "description": "æ æ",
+                        "format": "int32"
+                    },
+                    "setting": {
+                        "$ref": "#/components/schemas/TradeAccountSetting"
+                    },
+                    "openTime": {
+                        "type": "integer",
+                        "description": "å¼æ·æ¶é´ï¼æ¶é´æ³ï¼",
+                        "format": "int64"
+                    },
+                    "group": {
+                        "type": "string",
+                        "description": "è´¦æ·ç»",
+                        "nullable": true
+                    },
+                    "summary": {
+                        "$ref": "#/components/schemas/AccountSummary"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "æ¯å¦é»è®¤è´¦æ·"
+                    },
+                    "timeZone": {
+                        "type": "integer",
+                        "description": "è´¦æ·æ¶åº",
+                        "format": "int32"
+                    },
+                    "markUpPolicy": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "tradingPlatform": {
+                        "type": "string",
+                        "description": "äº¤æå¹³å°",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "è´¦æ·ç¶æ 1ï¼æ­£å¸¸ 2ï¼ç¦ç¨ 3ï¼åªè¯»",
+                        "format": "int32",
+                        "readOnly": true
+                    },
+                    "isProtocolCompleted": {
+                        "type": "boolean",
+                        "description": "åè®®æä»¶æ¯å¦å®æï¼è´¦æ·å®¡æ¹å®æåå®æå¡«ååè®®ï¼"
+                    },
+                    "alias": {
+                        "type": "string",
+                        "description": "è´¦æ·å«å",
+                        "nullable": true
+                    },
+                    "role": {
+                        "$ref": "#/components/schemas/AccountRole"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TradeAccountSetting": {
+                "type": "object",
+                "properties": {
+                    "readonly": {
+                        "type": "boolean",
+                        "description": "æ¯å¦åªè¯»"
+                    },
+                    "enable": {
+                        "type": "boolean",
+                        "description": "æ¯å¦å¯ç¨"
+                    },
+                    "enableDeposit": {
+                        "type": "boolean",
+                        "description": "åè®¸å¥é"
+                    },
+                    "enableWithdrawal": {
+                        "type": "boolean",
+                        "description": "åè®¸åºé"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "äº¤æè´¦æ·è®¾ç½®"
+            },
+            "UserSwapFreeResponse": {
+                "type": "object",
+                "properties": {
+                    "remanentLot": {
+                        "type": "number",
+                        "description": "å©ä½ææ°",
+                        "format": "double"
+                    },
+                    "remanentTime": {
+                        "type": "integer",
+                        "description": "å©ä½æ¶é´(ç§)",
+                        "format": "int64"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "ç¶æï¼ 0:è´¦æ·æ´»å¨æªå¼å¯,\r\n       1:è´¦æ·æ´»å¨å¼å¯ï¼æªå°æ\r\n       2.è´¦æ·æ´»å¨å¼å¯ï¼å·²å°æ",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "VerityCodeType": {
+                "enum": [
+                    "1 - Mail",
+                    "2 - Mobile"
+                ],
+                "type": "integer",
+                "format": "int32"
+            }
+        },
+        "securitySchemes": {
+            "Bearer": {
+                "type": "apiKey",
+                "description": "Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "Bearer": []
+        }
+    ]
+}

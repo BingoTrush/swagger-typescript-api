@@ -1,0 +1,1184 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+      "title": "å®¡æ¹æµç¨æå¡API",
+      "version": "v1"
+  },
+  "paths": {
+      "/iapi/v1/pro/crm/approval/documents": {
+          "post": {
+              "tags": [
+                  "Documents"
+              ],
+              "summary": "æäº¤å®¡æ¹ç³è¯·",
+              "parameters": [
+                  {
+                      "name": "uid",
+                      "in": "header",
+                      "description": "ç³è¯·äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "requestBody": {
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/PostDocumentBodyModel"
+                          }
+                      },
+                      "text/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/PostDocumentBodyModel"
+                          }
+                      },
+                      "application/*+json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/PostDocumentBodyModel"
+                          }
+                      }
+                  }
+              },
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApprovalDocumentSummary"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/documents/{docId}": {
+          "get": {
+              "tags": [
+                  "Documents"
+              ],
+              "summary": "è·åå®¡æ¹è¯¦æ",
+              "parameters": [
+                  {
+                      "name": "docId",
+                      "in": "path",
+                      "description": "ææ¡£ID",
+                      "required": true,
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32"
+                      }
+                  },
+                  {
+                      "name": "uid",
+                      "in": "header",
+                      "description": "ç³è¯·äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  },
+                  {
+                      "name": "managerId",
+                      "in": "header",
+                      "description": "å®¡æ¹äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApprovalDocumentDetail"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/documents/list": {
+          "get": {
+              "tags": [
+                  "Documents"
+              ],
+              "summary": "è·åå®¡æ¹åè¡¨",
+              "parameters": [
+                  {
+                      "name": "createTimeBegin",
+                      "in": "query",
+                      "description": "å¼å§åå»ºæ¶é´/S",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int64"
+                      }
+                  },
+                  {
+                      "name": "createTimeEnd",
+                      "in": "query",
+                      "description": "æªè³åå»ºæ¶é´/S",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int64"
+                      }
+                  },
+                  {
+                      "name": "flowCodes",
+                      "in": "query",
+                      "description": "æµç¨ç±»å",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "string"
+                          }
+                      }
+                  },
+                  {
+                      "name": "statuses",
+                      "in": "query",
+                      "description": "å®¡æ¹ç¶æ",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "$ref": "#/components/schemas/ApprovalStatus"
+                          }
+                      }
+                  },
+                  {
+                      "name": "applicantId",
+                      "in": "query",
+                      "description": "ç³è¯·äººID",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32"
+                      }
+                  },
+                  {
+                      "name": "isDesc",
+                      "in": "query",
+                      "description": "æ¯å¦æ¯éåºæå",
+                      "schema": {
+                          "type": "boolean"
+                      }
+                  },
+                  {
+                      "name": "orderBy",
+                      "in": "query",
+                      "description": "0-åå»ºæ¶é´,1-ä¿®æ¹æ¶é´",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32"
+                      }
+                  },
+                  {
+                      "name": "pageIndex",
+                      "in": "query",
+                      "description": "åé¡µé¡µæ°",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32",
+                          "default": 1
+                      }
+                  },
+                  {
+                      "name": "pageSize",
+                      "in": "query",
+                      "description": "åé¡µå¤§å°",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32",
+                          "default": 20
+                      }
+                  },
+                  {
+                      "name": "managerId",
+                      "in": "header",
+                      "description": "å®¡æ¹äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/ApprovalDocumentSummaryPageableResult"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/flows/definitions": {
+          "get": {
+              "tags": [
+                  "Flows"
+              ],
+              "summary": "è·åå®¡æ¹æµç¨åè¡¨",
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "array",
+                                  "items": {
+                                      "$ref": "#/components/schemas/FlowDefinitionSummary"
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/todos": {
+          "get": {
+              "tags": [
+                  "Todos"
+              ],
+              "summary": "è·åå¾ååè¡¨",
+              "parameters": [
+                  {
+                      "name": "createTimeBegin",
+                      "in": "query",
+                      "description": "å¼å§åå»ºæ¶é´/S",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int64"
+                      }
+                  },
+                  {
+                      "name": "createTimeEnd",
+                      "in": "query",
+                      "description": "æªè³åå»ºæ¶é´/S",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int64"
+                      }
+                  },
+                  {
+                      "name": "flowCodes",
+                      "in": "query",
+                      "description": "æµç¨ç±»å",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "string"
+                          }
+                      }
+                  },
+                  {
+                      "name": "statuses",
+                      "in": "query",
+                      "description": "å®¡æ¹ç¶æ",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "$ref": "#/components/schemas/ApprovalStatus"
+                          }
+                      }
+                  },
+                  {
+                      "name": "applicantId",
+                      "in": "query",
+                      "description": "ç³è¯·äººID",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32"
+                      }
+                  },
+                  {
+                      "name": "isDesc",
+                      "in": "query",
+                      "description": "æ¯å¦æ¯éåºæå",
+                      "schema": {
+                          "type": "boolean"
+                      }
+                  },
+                  {
+                      "name": "orderBy",
+                      "in": "query",
+                      "description": "0-åå»ºæ¶é´,1-ä¿®æ¹æ¶é´",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32"
+                      }
+                  },
+                  {
+                      "name": "pageIndex",
+                      "in": "query",
+                      "description": "åé¡µé¡µæ°",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32",
+                          "default": 1
+                      }
+                  },
+                  {
+                      "name": "pageSize",
+                      "in": "query",
+                      "description": "åé¡µå¤§å°",
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32",
+                          "default": 20
+                      }
+                  },
+                  {
+                      "name": "managerId",
+                      "in": "header",
+                      "description": "å®¡æ¹äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/TodoApprovalDocumentPageableResult"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/todos/{todoId}": {
+          "get": {
+              "tags": [
+                  "Todos"
+              ],
+              "summary": "è·åå¾å",
+              "parameters": [
+                  {
+                      "name": "todoId",
+                      "in": "path",
+                      "description": "",
+                      "required": true,
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32"
+                      }
+                  },
+                  {
+                      "name": "managerId",
+                      "in": "header",
+                      "description": "å®¡æ¹äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/TodoTaskDto"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/todos/pendingtotal": {
+          "get": {
+              "tags": [
+                  "Todos"
+              ],
+              "summary": "è·åå¾åæ°é",
+              "parameters": [
+                  {
+                      "name": "managerId",
+                      "in": "header",
+                      "description": "å®¡æ¹äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "type": "integer",
+                                  "format": "int32"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/todos/statistics": {
+          "get": {
+              "tags": [
+                  "Todos"
+              ],
+              "summary": "è·åå¾åç»è®¡",
+              "parameters": [
+                  {
+                      "name": "managerId",
+                      "in": "header",
+                      "description": "å®¡æ¹äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/TodoStatistics"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/todos/{todoId}/process": {
+          "post": {
+              "tags": [
+                  "Todos"
+              ],
+              "summary": "å¤çå¾å",
+              "parameters": [
+                  {
+                      "name": "todoId",
+                      "in": "path",
+                      "description": "å¾åä»»å¡ID",
+                      "required": true,
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32"
+                      }
+                  },
+                  {
+                      "name": "managerId",
+                      "in": "header",
+                      "description": "å®¡æ¹äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "requestBody": {
+                  "description": "",
+                  "content": {
+                      "application/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/PutStepBodyModel"
+                          }
+                      },
+                      "text/json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/PutStepBodyModel"
+                          }
+                      },
+                      "application/*+json": {
+                          "schema": {
+                              "$ref": "#/components/schemas/PutStepBodyModel"
+                          }
+                      }
+                  }
+              },
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/TodoProcessFeedback"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/todos/{todoId}/lock": {
+          "post": {
+              "tags": [
+                  "Todos"
+              ],
+              "summary": "éå®å¾å",
+              "parameters": [
+                  {
+                      "name": "todoId",
+                      "in": "path",
+                      "description": "å¾åä»»å¡ID",
+                      "required": true,
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32"
+                      }
+                  },
+                  {
+                      "name": "managerId",
+                      "in": "header",
+                      "description": "å®¡æ¹äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/TodoLockFeedback"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      },
+      "/iapi/v1/pro/crm/approval/todos/{todoId}/unlock": {
+          "post": {
+              "tags": [
+                  "Todos"
+              ],
+              "summary": "è§£éå¾å",
+              "parameters": [
+                  {
+                      "name": "todoId",
+                      "in": "path",
+                      "description": "å¾åä»»å¡ID",
+                      "required": true,
+                      "schema": {
+                          "type": "integer",
+                          "format": "int32"
+                      }
+                  },
+                  {
+                      "name": "managerId",
+                      "in": "header",
+                      "description": "å®¡æ¹äººId(Debug)",
+                      "schema": {
+                          "type": "string"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Success",
+                      "content": {
+                          "application/json": {
+                              "schema": {
+                                  "$ref": "#/components/schemas/TodoUnlockFeedback"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  },
+  "components": {
+      "schemas": {
+          "ApprovalDocumentDetail": {
+              "type": "object",
+              "properties": {
+                  "docId": {
+                      "type": "integer",
+                      "description": "å®¡æ¹ID",
+                      "format": "int32"
+                  },
+                  "status": {
+                      "$ref": "#/components/schemas/ApprovalStatus"
+                  },
+                  "content": {
+                      "type": "string",
+                      "description": "å®¡æ¹åå®¹",
+                      "nullable": true
+                  },
+                  "applicant": {
+                      "type": "string",
+                      "description": "ç³è¯·äººåç§°",
+                      "nullable": true
+                  },
+                  "createDateTime": {
+                      "type": "integer",
+                      "description": "åå»ºæ¶é´",
+                      "format": "int64"
+                  },
+                  "flowCode": {
+                      "type": "string",
+                      "description": "æµç¨ä»£ç ",
+                      "nullable": true
+                  },
+                  "applicantId": {
+                      "type": "integer",
+                      "description": "ç³è¯·äººID",
+                      "format": "int32"
+                  },
+                  "bizId": {
+                      "type": "string",
+                      "description": "ä¸å¡ID",
+                      "nullable": true
+                  },
+                  "applicantThumbnailUri": {
+                      "type": "string",
+                      "description": "ç³è¯·äººå¤´åURL",
+                      "nullable": true
+                  },
+                  "records": {
+                      "type": "array",
+                      "items": {
+                          "$ref": "#/components/schemas/ApprovalRecordDto"
+                      },
+                      "description": "å®¡æ¹è®°å½",
+                      "nullable": true
+                  },
+                  "lastUpdateTime": {
+                      "type": "integer",
+                      "description": "æåä¿®æ¹æ¶é´",
+                      "format": "int64"
+                  }
+              },
+              "additionalProperties": false,
+              "description": "å®¡æ¹è¯¦æ"
+          },
+          "ApprovalDocumentSummary": {
+              "type": "object",
+              "properties": {
+                  "docId": {
+                      "type": "integer",
+                      "description": "å®¡æ¹ID",
+                      "format": "int32"
+                  },
+                  "status": {
+                      "$ref": "#/components/schemas/ApprovalStatus"
+                  },
+                  "content": {
+                      "type": "string",
+                      "description": "å®¡æ¹åå®¹",
+                      "nullable": true
+                  },
+                  "applicant": {
+                      "type": "string",
+                      "description": "ç³è¯·äººåç§°",
+                      "nullable": true
+                  },
+                  "createDateTime": {
+                      "type": "integer",
+                      "description": "åå»ºæ¶é´",
+                      "format": "int64"
+                  },
+                  "flowCode": {
+                      "type": "string",
+                      "description": "æµç¨ä»£ç ",
+                      "nullable": true
+                  },
+                  "applicantId": {
+                      "type": "integer",
+                      "description": "ç³è¯·äººID",
+                      "format": "int32"
+                  },
+                  "bizId": {
+                      "type": "string",
+                      "description": "ä¸å¡ID",
+                      "nullable": true
+                  },
+                  "applicantThumbnailUri": {
+                      "type": "string",
+                      "description": "ç³è¯·äººå¤´åURL",
+                      "nullable": true
+                  }
+              },
+              "additionalProperties": false,
+              "description": "å®¡æ¹æ¦è§"
+          },
+          "ApprovalDocumentSummaryPageableResult": {
+              "type": "object",
+              "properties": {
+                  "items": {
+                      "type": "array",
+                      "items": {
+                          "$ref": "#/components/schemas/ApprovalDocumentSummary"
+                      },
+                      "nullable": true
+                  },
+                  "totalCount": {
+                      "type": "integer",
+                      "format": "int32"
+                  }
+              },
+              "additionalProperties": false
+          },
+          "ApprovalOptions": {
+              "enum": [
+                  2,
+                  4,
+                  8
+              ],
+              "type": "integer",
+              "description": "\n\n2 = Agree (åæ)\n\n4 = Reject (æç»)\n\n8 = BackOff (åéä¸ä¸æ­¥)",
+              "format": "int32",
+              "x-enumNames": [
+                  "Agree",
+                  "Reject",
+                  "BackOff"
+              ],
+              "x-enumDescriptions": [
+                  "åæ",
+                  "æç»",
+                  "åéä¸ä¸æ­¥"
+              ]
+          },
+          "ApprovalRecordDto": {
+              "type": "object",
+              "properties": {
+                  "id": {
+                      "type": "integer",
+                      "description": "å®¡æ¹æ´»å¨ID",
+                      "format": "int32"
+                  },
+                  "stepCode": {
+                      "type": "string",
+                      "description": "å®¡æ¹æ­¥éª¤å®ä¹",
+                      "nullable": true
+                  },
+                  "createDateTime": {
+                      "type": "integer",
+                      "description": "åå»ºæ¶é´",
+                      "format": "int64"
+                  },
+                  "approverId": {
+                      "type": "integer",
+                      "description": "å®¡æ¹äººID\r\næªå®¡æ¹åä¸ºç©º",
+                      "format": "int32"
+                  },
+                  "reason": {
+                      "type": "string",
+                      "description": "å®¡æ¹çç±",
+                      "nullable": true
+                  },
+                  "status": {
+                      "$ref": "#/components/schemas/ApprovalRecordStatus"
+                  },
+                  "additionalFields": {
+                      "type": "object",
+                      "additionalProperties": {
+                          "type": "string",
+                          "nullable": true
+                      },
+                      "description": "éå è¡¨å",
+                      "nullable": true
+                  },
+                  "approver": {
+                      "type": "string",
+                      "description": "å®¡æ¹äºº",
+                      "nullable": true
+                  },
+                  "approverThumbnailUri": {
+                      "type": "string",
+                      "description": "å®¡æ¹äººå¤´å",
+                      "nullable": true
+                  }
+              },
+              "additionalProperties": false,
+              "description": "å®¡æ¹è®°å½"
+          },
+          "ApprovalRecordStatus": {
+              "enum": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4
+              ],
+              "type": "integer",
+              "description": "\n\n0 = Pending (å¾å)\n\n1 = Reject (æç»)\n\n2 = Pass (éè¿)\n\n3 = ToRedo (ä½¿éå)\n\n4 = Discard (ä½åº)",
+              "format": "int32",
+              "x-enumNames": [
+                  "Pending",
+                  "Reject",
+                  "Pass",
+                  "ToRedo",
+                  "Discard"
+              ],
+              "x-enumDescriptions": [
+                  "å¾å",
+                  "æç»",
+                  "éè¿",
+                  "ä½¿éå",
+                  "ä½åº"
+              ]
+          },
+          "ApprovalStatus": {
+              "enum": [
+                  0,
+                  1,
+                  2
+              ],
+              "type": "integer",
+              "description": "å®¡æ¹ç¶æ\n\n0 = Processing (å¤çä¸­)\n\n1 = Failure (æªéè¿)\n\n2 = Succeed (æå)",
+              "format": "int32",
+              "x-enumNames": [
+                  "Processing",
+                  "Failure",
+                  "Succeed"
+              ],
+              "x-enumDescriptions": [
+                  "å¤çä¸­",
+                  "æªéè¿",
+                  "æå"
+              ]
+          },
+          "FlowDefinitionSummary": {
+              "type": "object",
+              "properties": {
+                  "flowCode": {
+                      "type": "string",
+                      "description": "æµç¨ä»£ç ",
+                      "nullable": true
+                  },
+                  "name": {
+                      "type": "string",
+                      "description": "æµç¨åç§°",
+                      "nullable": true
+                  },
+                  "description": {
+                      "type": "string",
+                      "description": "æµç¨æè¿°",
+                      "nullable": true
+                  },
+                  "loadTime": {
+                      "type": "string",
+                      "description": "è¯»åæ¶é´",
+                      "format": "date-time"
+                  }
+              },
+              "additionalProperties": false,
+              "description": "å®¡æ¹æµç¨å®ä¹æ¦è§"
+          },
+          "PostDocumentBodyModel": {
+              "required": [
+                  "flowCode"
+              ],
+              "type": "object",
+              "properties": {
+                  "flowCode": {
+                      "type": "string",
+                      "description": "æµç¨ID"
+                  },
+                  "bizId": {
+                      "type": "string",
+                      "description": "ä¸å¡ID",
+                      "nullable": true
+                  },
+                  "content": {
+                      "type": "string",
+                      "description": "å®¡æ¹åå®¹",
+                      "nullable": true
+                  }
+              },
+              "additionalProperties": false
+          },
+          "PutStepBodyModel": {
+              "required": [
+                  "option"
+              ],
+              "type": "object",
+              "properties": {
+                  "option": {
+                      "$ref": "#/components/schemas/ApprovalOptions"
+                  },
+                  "reason": {
+                      "type": "string",
+                      "description": "å®¡æ¹çç±",
+                      "nullable": true
+                  },
+                  "additionalFields": {
+                      "type": "object",
+                      "additionalProperties": {
+                          "type": "string",
+                          "nullable": true
+                      },
+                      "description": "éå è¡¨å",
+                      "nullable": true
+                  }
+              },
+              "additionalProperties": false
+          },
+          "TodoApprovalDocument": {
+              "type": "object",
+              "properties": {
+                  "docId": {
+                      "type": "integer",
+                      "description": "å®¡æ¹ID",
+                      "format": "int32"
+                  },
+                  "status": {
+                      "$ref": "#/components/schemas/ApprovalStatus"
+                  },
+                  "content": {
+                      "type": "string",
+                      "description": "å®¡æ¹åå®¹",
+                      "nullable": true
+                  },
+                  "applicant": {
+                      "type": "string",
+                      "description": "ç³è¯·äººåç§°",
+                      "nullable": true
+                  },
+                  "createDateTime": {
+                      "type": "integer",
+                      "description": "åå»ºæ¶é´",
+                      "format": "int64"
+                  },
+                  "flowCode": {
+                      "type": "string",
+                      "description": "æµç¨ä»£ç ",
+                      "nullable": true
+                  },
+                  "applicantId": {
+                      "type": "integer",
+                      "description": "ç³è¯·äººID",
+                      "format": "int32"
+                  },
+                  "bizId": {
+                      "type": "string",
+                      "description": "ä¸å¡ID",
+                      "nullable": true
+                  },
+                  "applicantThumbnailUri": {
+                      "type": "string",
+                      "description": "ç³è¯·äººå¤´åURL",
+                      "nullable": true
+                  },
+                  "stepCode": {
+                      "type": "string",
+                      "description": "æ­¥éª¤ä»£ç ",
+                      "nullable": true
+                  },
+                  "todoId": {
+                      "type": "integer",
+                      "description": "å¾åä»»å¡ID",
+                      "format": "int32"
+                  },
+                  "currentLocker": {
+                      "type": "string",
+                      "description": "éå®äºº",
+                      "nullable": true
+                  },
+                  "lockerId": {
+                      "type": "integer",
+                      "description": "éå®äººID",
+                      "format": "int32"
+                  },
+                  "lockerThumbnailUri": {
+                      "type": "string",
+                      "description": "éå®äººå¤´å",
+                      "nullable": true
+                  },
+                  "allowOptions": {
+                      "type": "array",
+                      "items": {
+                          "$ref": "#/components/schemas/ApprovalOptions"
+                      },
+                      "description": "åè®¸çå®¡æ¹æä½",
+                      "nullable": true,
+                      "readOnly": true
+                  }
+              },
+              "additionalProperties": false
+          },
+          "TodoApprovalDocumentPageableResult": {
+              "type": "object",
+              "properties": {
+                  "items": {
+                      "type": "array",
+                      "items": {
+                          "$ref": "#/components/schemas/TodoApprovalDocument"
+                      },
+                      "nullable": true
+                  },
+                  "totalCount": {
+                      "type": "integer",
+                      "format": "int32"
+                  }
+              },
+              "additionalProperties": false
+          },
+          "TodoLockFeedback": {
+              "type": "object",
+              "properties": {
+                  "todoId": {
+                      "type": "integer",
+                      "description": "å¾åID",
+                      "format": "int32"
+                  },
+                  "isSuccess": {
+                      "type": "boolean",
+                      "description": "æ¯å¦æå"
+                  },
+                  "currentLocker": {
+                      "type": "string",
+                      "description": "å½åéå®äºº",
+                      "nullable": true
+                  },
+                  "lockExpiration": {
+                      "type": "integer",
+                      "description": "éå®æªè³/s",
+                      "format": "int64",
+                      "nullable": true
+                  }
+              },
+              "additionalProperties": false,
+              "description": "éå®å®¡æ¹æ­¥éª¤åé¦"
+          },
+          "TodoProcessFeedback": {
+              "type": "object",
+              "properties": {
+                  "isSuccess": {
+                      "type": "boolean",
+                      "description": "æ¯å¦æå"
+                  },
+                  "message": {
+                      "type": "string",
+                      "description": "ä¿¡æ¯",
+                      "nullable": true
+                  }
+              },
+              "additionalProperties": false
+          },
+          "TodoStatistics": {
+              "type": "object",
+              "properties": {
+                  "todayNew": {
+                      "type": "integer",
+                      "description": "ä»æ¥æ°å¢",
+                      "format": "int32"
+                  },
+                  "toDo": {
+                      "type": "integer",
+                      "description": "æçå¾å",
+                      "format": "int32"
+                  },
+                  "done": {
+                      "type": "integer",
+                      "description": "å·²å®æ",
+                      "format": "int32"
+                  }
+              },
+              "additionalProperties": false,
+              "description": "å¾åä»»å¡ç»è®¡"
+          },
+          "TodoTaskDto": {
+              "type": "object",
+              "properties": {
+                  "todoId": {
+                      "type": "integer",
+                      "description": "å¾åID",
+                      "format": "int32"
+                  },
+                  "stepCode": {
+                      "type": "string",
+                      "description": "æ­¥éª¤ä»£ç ",
+                      "nullable": true
+                  },
+                  "createDateTime": {
+                      "type": "integer",
+                      "description": "åå»ºæ¶é´",
+                      "format": "int64"
+                  },
+                  "approverId": {
+                      "type": "integer",
+                      "description": "å®¡æ¹äºº",
+                      "format": "int32",
+                      "nullable": true
+                  },
+                  "status": {
+                      "$ref": "#/components/schemas/TodoTaskStatus"
+                  },
+                  "allowOptions": {
+                      "type": "array",
+                      "items": {
+                          "$ref": "#/components/schemas/ApprovalOptions"
+                      },
+                      "description": "åè®¸çå®¡æ¹æä½",
+                      "nullable": true,
+                      "readOnly": true
+                  }
+              },
+              "additionalProperties": false
+          },
+          "TodoTaskStatus": {
+              "enum": [
+                  0,
+                  1,
+                  2
+              ],
+              "type": "integer",
+              "description": "\n\n0 = Pending (ç­å¾å®¡æ¹)\n\n1 = Completed (å®ææ­¤ä»»å¡)\n\n2 = BackOff (æ­¤æ­¥éª¤åé)",
+              "format": "int32",
+              "x-enumNames": [
+                  "Pending",
+                  "Completed",
+                  "BackOff"
+              ],
+              "x-enumDescriptions": [
+                  "ç­å¾å®¡æ¹",
+                  "å®ææ­¤ä»»å¡",
+                  "æ­¤æ­¥éª¤åé"
+              ]
+          },
+          "TodoUnlockFeedback": {
+              "type": "object",
+              "properties": {
+                  "todoId": {
+                      "type": "integer",
+                      "description": "å¾åID",
+                      "format": "int32"
+                  },
+                  "isSuccess": {
+                      "type": "boolean",
+                      "description": "æ¯å¦æå"
+                  }
+              },
+              "additionalProperties": false,
+              "description": "è§£é¤éå®å®¡æ¹æ­¥éª¤åé¦"
+          }
+      },
+      "securitySchemes": {
+          "Bearer": {
+              "type": "apiKey",
+              "description": "Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+              "name": "Authorization",
+              "in": "header"
+          }
+      }
+  },
+  "security": [
+      {
+          "Bearer": []
+      }
+  ]
+}

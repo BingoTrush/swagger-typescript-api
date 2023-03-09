@@ -1,0 +1,3995 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "èªè¥çè´¦æ·ç®¡ç-crm",
+        "version": "v1"
+    },
+    "paths": {
+        "/iapi/v1/pro/account/crm/accountgroup/add": {
+            "post": {
+                "tags": [
+                    "AccountGroup"
+                ],
+                "summary": "æ·»å è´¦æ·ç»",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAccountGroupRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAccountGroupRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAccountGroupRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAccountGroupRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/accountgroup/modify": {
+            "post": {
+                "tags": [
+                    "AccountGroup"
+                ],
+                "summary": "ä¿®æ¹è´¦æ·ç»",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountGroupRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountGroupRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountGroupRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountGroupRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/accountgroup/del/{id}": {
+            "post": {
+                "tags": [
+                    "AccountGroup"
+                ],
+                "summary": "æIdå é¤è¿ä½£åç»-åæ¡å é¤",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/accountgroup/list": {
+            "get": {
+                "tags": [
+                    "AccountGroup"
+                ],
+                "summary": "åé¡µè·åè´¦æ·ç»",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pageIndex",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "isDesc",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAccountGroupListResponsePageableResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAccountGroupListResponsePageableResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAccountGroupListResponsePageableResult"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/accountgroup/types": {
+            "get": {
+                "tags": [
+                    "AccountGroup"
+                ],
+                "summary": "è·åè´¦æ·ç»ç±»å",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "description": "1.ä¸ªäºº  2.æºæ",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/accountgroup/all": {
+            "get": {
+                "tags": [
+                    "AccountGroup"
+                ],
+                "summary": "è·åææè´¦æ·ç»",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/GetAccountGroupListResponse"
+                                        }
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/GetAccountGroupListResponse"
+                                        }
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/GetAccountGroupListResponse"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/accountgroup/names": {
+            "get": {
+                "tags": [
+                    "AccountGroup"
+                ],
+                "summary": "è·åææè´¦æ·ç»åç§°",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/bankcard/list/{userId}": {
+            "get": {
+                "tags": [
+                    "BankCard"
+                ],
+                "summary": "è·åç¨æ·çé¶è¡å¡åè¡¨",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetListByUserIdResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetListByUserIdResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetListByUserIdResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/config/exchangerate/list": {
+            "get": {
+                "tags": [
+                    "Config"
+                ],
+                "summary": "è·åæ±çåè¡¨",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExchangeRate"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExchangeRate"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ExchangeRate"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/institution/profile/detail/{userId}": {
+            "get": {
+                "tags": [
+                    "InstitutionProfile"
+                ],
+                "summary": "è·åæºæKycèµæè¯¦æ",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/institution/profile/audit/detail/{auditId}": {
+            "get": {
+                "tags": [
+                    "InstitutionProfile"
+                ],
+                "summary": "è·åå®¡æ ¸è¯¦æ",
+                "parameters": [
+                    {
+                        "name": "auditId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAuditDetailResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAuditDetailResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAuditDetailResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/report/monthly/ungenerated/list": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "è·åæªçæè´¦æ·ææ¥æ°æ®",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "åç§»çæä»½ï¼0è¡¨ç¤ºä¸ä¸ä¸ªæï¼1è¡¨ç¤ºä¸ä¸ä¸ªæ",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TradeMonthlyReportModel"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TradeMonthlyReportModel"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TradeMonthlyReportModel"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/report/monthly/ungenerated/{account}": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "è·åæªçæè´¦æ·ææ¥æ°æ®",
+                "parameters": [
+                    {
+                        "name": "account",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "åç§»çæä»½ï¼0è¡¨ç¤ºä¸ä¸ä¸ªæï¼1è¡¨ç¤ºä¸ä¸ä¸ªæ",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TradeMonthlyReportModel"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TradeMonthlyReportModel"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TradeMonthlyReportModel"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/report/monthly/generate": {
+            "post": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "çæè´¦æ·ææ¥",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GeneratedMonthlyReportRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GeneratedMonthlyReportRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GeneratedMonthlyReportRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GeneratedMonthlyReportRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/search": {
+            "get": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "æç´¢äº¤æè´¦æ·",
+                "parameters": [
+                    {
+                        "name": "acount",
+                        "in": "query",
+                        "description": "æç§mt4è´¦å·",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SearchAccountModel"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SearchAccountModel"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SearchAccountModel"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/list/{userId}": {
+            "get": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "æ ¹æ®ç¨æ·è·ååè¡¨",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/detail/{userId}/{account}": {
+            "get": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "è·åè´¦æ·çè¯¦æ",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "account",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TradeAccountQueryModel"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/modify/setting": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "ä¿®æ¹è´¦æ·",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/modify/group": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "ä¿®æ¹è´¦æ·ç»",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyGroupRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyGroupRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyGroupRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyGroupRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/modify/readonly": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "ä¿®æ¹åªè¯»ç¶æ",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/modify/enable": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "ä¿®æ¹å¯ç¨ç¶æ",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/modify/enabledeposit": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "ä¿®æ¹æ¯å¦åè®¸å¥é",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/modify/enablewithdrawal": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "ä¿®æ¹æ¯å¦åè®¸åºé",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountStatusRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/type/list": {
+            "get": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "è·åè´¦æ·ç±»ååè¡¨",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccountType"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccountType"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccountType"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/type/list/category/{userId}": {
+            "get": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "æ ¹æ®ç¨æ·idè·åè´¦æ·ç±»ååè¡¨",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "è¦æ¥è¯¢çç¨æ·id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccountType"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccountType"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AccountType"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/audit/detail/{userId}/{bizid}": {
+            "get": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "è·ååå»ºè´¦æ·å®¡æ ¸è¯¦æ",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "bizid",
+                        "in": "path",
+                        "description": "å®¡æ¹åè¡¨ä¸­çbizidï¼è¿ä¸ªäº¤æè´¦æ·çaccountçå­æ®µï¼",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCreateAccountAuditDetailResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCreateAccountAuditDetailResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCreateAccountAuditDetailResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/protocol/unsigned/list": {
+            "get": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "è·åæªç­¾åè®®åè¡¨",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetUnSignedProtocolListResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetUnSignedProtocolListResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/GetUnSignedProtocolListResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/protocol/sign": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "ç­¾ç½²è´¦æ·åè®®",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignProtocolRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignProtocolRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignProtocolRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SignProtocolRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/protocol/{userId}/{account}": {
+            "get": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "è·ååè®®ï¼è¿åjsonæ ¼å¼åè®®",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "account",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/protocol/reset": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "éç½®è´¦æ·åè®®ç¶æï¼ç­å¾éæ°çæåè®®ï¼",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetProtocolRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetProtocolRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetProtocolRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetProtocolRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/modify/alias": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "summary": "ä¿®æ¹å«å",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountAliasRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountAliasRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountAliasRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAccountAliasRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/info/add/account": {
+            "post": {
+                "tags": [
+                    "TradeAccount"
+                ],
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAccountRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAccountRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAccountRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAccountRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprofile/detail/{userId}": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "è·åç¨æ·èµæè¯¦æ",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprofile/audit/detail/{auditId}": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "è·åå®¡æ ¸è¯¦æ",
+                "parameters": [
+                    {
+                        "name": "auditId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAuditDetailResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAuditDetailResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAuditDetailResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprofile/audit/modify": {
+            "post": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "ä¿®æ¹å®¡æ¹ä¸­çkycèµæ",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAuditingProfileRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAuditingProfileRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAuditingProfileRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyAuditingProfileRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprofile/send/sms/wp": {
+            "post": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "åéwpç­ä¿¡éç¥ï¼wpæçµè¯ååéçç­ä¿¡",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SendWPSmsRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SendWPSmsRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SendWPSmsRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SendWPSmsRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprofile/user/swapfree/{userId}": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserSwapFreeResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserSwapFreeResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserSwapFreeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprofile/additionalcontent/add": {
+            "post": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "å¢å è¡¥åèµæ",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAdditionalContentRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAdditionalContentRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAdditionalContentRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddAdditionalContentRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprofile/additionalcontent/detail/{userId}": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "è¡¥åèµæå±ç¤º",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AddAdditionalContentListResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AddAdditionalContentListResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AddAdditionalContentListResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprofile/upgradecustomertype": {
+            "post": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "summary": "åçº§å®¢æ·ç±»å",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpgradeCustomerTypeRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpgradeCustomerTypeRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpgradeCustomerTypeRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpgradeCustomerTypeRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprofile/simpleinfo/{userId}": {
+            "get": {
+                "tags": [
+                    "UserProfile"
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserProfileSimpleInfo"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserProfileSimpleInfo"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserProfileSimpleInfo"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprotocol/protocol/unsigned/list": {
+            "get": {
+                "tags": [
+                    "UserProtocol"
+                ],
+                "summary": "è·åæªç­¾åè®®åè¡¨",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UnSignedUserProtocolsResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UnSignedUserProtocolsResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UnSignedUserProtocolsResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprotocol/uploadprotocol": {
+            "post": {
+                "tags": [
+                    "UserProtocol"
+                ],
+                "summary": "ä¸ä¼ ç¨æ·åè®®",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserProtocolsRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserProtocolsRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserProtocolsRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserProtocolsRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprotocol/reset": {
+            "post": {
+                "tags": [
+                    "UserProtocol"
+                ],
+                "summary": "éç½®åè®®ç­¾ç½²ç¶æ",
+                "parameters": [
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetUserProtocolRequest"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetUserProtocolRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetUserProtocolRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetUserProtocolRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprotocol/protocol/{userId}": {
+            "get": {
+                "tags": [
+                    "UserProtocol"
+                ],
+                "summary": "è·ååè®®ï¼è¿åjsonæ ¼å¼åè®®",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprotocol/protocol/{userId}/zip": {
+            "get": {
+                "tags": [
+                    "UserProtocol"
+                ],
+                "summary": "",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/iapi/v1/pro/account/crm/userprotocol/protocol/repeat/{userId}": {
+            "get": {
+                "tags": [
+                    "UserProtocol"
+                ],
+                "summary": "è·åä¸å½åç¨æ·çå¼æ·èµæéå¤çå·²å¼æ·ç¨æ·åè¡¨",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "uid",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "0-ä¸ªäºº(é»è®¤),1-æºæ",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "managerId",
+                        "in": "header",
+                        "description": "æä½äººIdï¼ç¨äºè°è¯ï¼"
+                    },
+                    {
+                        "name": "managerName",
+                        "in": "header",
+                        "description": "æä½å§åï¼ç¨äºè°è¯ï¼"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RepeatUsersResponse"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RepeatUsersResponse"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RepeatUsersResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AccountRole": {
+                "enum": [
+                    "1 - Normal",
+                    "2 - Signal",
+                    "3 - Follower"
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "AccountServer": {
+                "type": "object",
+                "properties": {
+                    "isDemo": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AccountSummary": {
+                "type": "object",
+                "properties": {
+                    "serverId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "equity": {
+                        "type": "number",
+                        "description": "åå¼",
+                        "format": "double"
+                    },
+                    "balance": {
+                        "type": "number",
+                        "description": "ä½é¢",
+                        "format": "double"
+                    },
+                    "credit": {
+                        "type": "number",
+                        "description": "ä¿¡ç¨é",
+                        "format": "double"
+                    },
+                    "floating": {
+                        "type": "number",
+                        "description": "æµ®å¨çäº åå¼-ä½é¢",
+                        "format": "double"
+                    },
+                    "deposit": {
+                        "type": "number",
+                        "description": "å¥é",
+                        "format": "double"
+                    },
+                    "netDeposit": {
+                        "type": "number",
+                        "description": "åå¥é å¥é-åºé",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "withdrawal": {
+                        "type": "number",
+                        "description": "åºé",
+                        "format": "double"
+                    },
+                    "processingWithdrawal": {
+                        "type": "number",
+                        "description": "å¤çä¸­åºé",
+                        "format": "double"
+                    },
+                    "totalWithdrawal": {
+                        "type": "number",
+                        "description": "æ»åºé",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "lots": {
+                        "type": "number",
+                        "description": "äº¤æææ°",
+                        "format": "double"
+                    },
+                    "profit": {
+                        "type": "number",
+                        "description": "å¹³ä»çäº",
+                        "format": "double"
+                    },
+                    "trades": {
+                        "type": "number",
+                        "description": "äº¤æç¬æ°",
+                        "format": "double"
+                    },
+                    "lastTradeTime": {
+                        "type": "integer",
+                        "description": "æåäº¤ææ¶é´",
+                        "format": "int64"
+                    },
+                    "commission": {
+                        "type": "number",
+                        "description": "ä½£é",
+                        "format": "double"
+                    },
+                    "swaps": {
+                        "type": "number",
+                        "description": "æç»­è´¹",
+                        "format": "double"
+                    },
+                    "adjustment": {
+                        "type": "number",
+                        "description": "çä»å½0çéé¢",
+                        "format": "double"
+                    },
+                    "margin": {
+                        "type": "number",
+                        "description": "ä¿è¯é",
+                        "format": "double"
+                    },
+                    "marginLevel": {
+                        "type": "number",
+                        "description": "ä¿è¯éæ¯ä¾",
+                        "format": "double"
+                    },
+                    "freeMargin": {
+                        "type": "number",
+                        "description": "å¯ç¨ä¿è¯é",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AccountType": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "category": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "spread": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "spreadType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "commission": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "minFunding": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "isDefault": {
+                        "type": "boolean"
+                    },
+                    "leverage": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "allowCreation": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddAccountGroupRequest": {
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "ç»å ï¼mt4ä¸­çè´¦æ·ç»ï¼"
+                    },
+                    "type": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "è´¦æ·ç±»å"
+                    },
+                    "spread": {
+                        "maximum": 100,
+                        "minimum": 0,
+                        "type": "number",
+                        "description": "ç¹å·®",
+                        "format": "double"
+                    },
+                    "fee": {
+                        "maximum": 100,
+                        "minimum": 0,
+                        "type": "number",
+                        "description": "æç»­è´¹",
+                        "format": "double"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "é»è®¤åç»ï¼åªè½æä¸ä¸ªï¼"
+                    },
+                    "remark": {
+                        "maxLength": 1024,
+                        "type": "string",
+                        "description": "å¤æ³¨",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddAccountRequest": {
+                "required": [
+                    "accountType"
+                ],
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "accountType": {
+                        "type": "string",
+                        "description": "è´¦æ·ç±»ååç±» æ åè´¦æ·ãä¸ä¸è´¦æ·"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "å¸ç§",
+                        "nullable": true
+                    },
+                    "exchangeRate": {
+                        "type": "number",
+                        "description": "æ±ç\r\nå¸ç§åç¾åçæ±ç\r\nå¦ å¸ç§æ¯å°å°¼ç¾ æ±çæ¯10000",
+                        "format": "double"
+                    },
+                    "leverage": {
+                        "type": "integer",
+                        "description": "æ æ",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddAdditionalContentListResponse": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "photoUrl": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "time": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "operator": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AddAdditionalContentRequest": {
+                "required": [
+                    "description",
+                    "photoUrl"
+                ],
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "photoUrl": {
+                        "type": "string"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ApprovalRecordDto": {
+                "type": "object",
+                "properties": {
+                    "stepCode": {
+                        "type": "string",
+                        "description": "å®¡æ¹æ­¥éª¤",
+                        "nullable": true
+                    },
+                    "approverId": {
+                        "type": "integer",
+                        "description": "å®¡æ¹äººid",
+                        "format": "int32"
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "å®¡æ¹æè§",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "å®¡æ¹ç»æ",
+                        "format": "int32"
+                    },
+                    "createTimestamp": {
+                        "type": "integer",
+                        "description": "å®¡æ¹æ¶é´ ï¼æ¶é´æ³ åä½ç§ï¼",
+                        "format": "int64"
+                    },
+                    "approver": {
+                        "type": "string",
+                        "description": "å®¡æ¹äººå§å",
+                        "nullable": true
+                    },
+                    "approverThumbnailUri": {
+                        "type": "string",
+                        "description": "å®¡æ¹äººå¤´å",
+                        "nullable": true
+                    },
+                    "additionalFields": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string",
+                            "nullable": true
+                        },
+                        "description": "å®¡æ¹ä¿¡æ¯çéå å­æ®µ",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "BankCardBaseInfo": {
+                "type": "object",
+                "properties": {
+                    "holder": {
+                        "type": "string",
+                        "description": "æå¡äºº",
+                        "nullable": true
+                    },
+                    "bankName": {
+                        "type": "string",
+                        "description": "é¶è¡åç§°",
+                        "nullable": true
+                    },
+                    "bankAddress": {
+                        "type": "string",
+                        "description": "é¶è¡å¡å°å",
+                        "nullable": true
+                    },
+                    "bankCardNo": {
+                        "type": "string",
+                        "description": "å¡å·",
+                        "nullable": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "æç°è´§å¸ï¼USDTãUSDãRMB ç­ï¼",
+                        "nullable": true
+                    },
+                    "swiftCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "å½å®¶ä»£ç ",
+                        "nullable": true
+                    },
+                    "phone": {
+                        "type": "string",
+                        "description": "é¶è¡é¢çææºå·",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "integer",
+                        "description": "é¶è¡å¡ç±»å ä¿¡ç¨å¡ è®°è´¦å¡ 10.å¯¹å¬è´¦æ·",
+                        "format": "int32"
+                    },
+                    "otherType": {
+                        "type": "string",
+                        "description": "å¶ä»çé¶è¡å¡ç±»åï¼typeä¸º0æ¯éè¦è¾å¥OtherType",
+                        "nullable": true
+                    },
+                    "imageUrl": {
+                        "type": "string",
+                        "description": "é¶è¡å¡å¾çå°å",
+                        "nullable": true
+                    },
+                    "paymentMethod": {
+                        "$ref": "#/components/schemas/PaymentMethod"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "é¶è¡å¡åºç¡ä¿¡æ¯"
+            },
+            "CustomerType": {
+                "enum": [
+                    "0 - None",
+                    "1 - Retail",
+                    "2 - Major"
+                ],
+                "type": "integer",
+                "description": "å®¢æ·ç±»å",
+                "format": "int32"
+            },
+            "ExchangeRate": {
+                "type": "object",
+                "properties": {
+                    "from": {
+                        "type": "string",
+                        "description": "åå§è´§å¸",
+                        "nullable": true
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": "ç®æ è´§å¸",
+                        "nullable": true
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "æ±çå¼",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "æ±ç\r\nåå§è´§å¸è½¬æ¢æç®æ è´§å¸çæ±çå¼\r\nå¦ å°å°¼ç¾è½¬æ¢æç¾åçæ±çå¼æ¯14000"
+            },
+            "GeneratedMonthlyReportRequest": {
+                "required": [
+                    "account",
+                    "fileUrl"
+                ],
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "maxLength": 32,
+                        "type": "string",
+                        "description": "MT4è´¦æ·"
+                    },
+                    "serverId": {
+                        "maximum": 1000,
+                        "minimum": 1,
+                        "type": "integer",
+                        "description": "æå¡å¨",
+                        "format": "int32"
+                    },
+                    "month": {
+                        "type": "integer",
+                        "description": "æä»½",
+                        "format": "int32"
+                    },
+                    "fileUrl": {
+                        "maxLength": 512,
+                        "pattern": "(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]",
+                        "type": "string",
+                        "description": "ææ¥æä»¶å°å"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetAccountGroupListResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "ç»å ï¼mt4ä¸­çè´¦æ·ç»ï¼",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "ç±»å",
+                        "nullable": true
+                    },
+                    "spread": {
+                        "type": "number",
+                        "description": "ç¹å·®",
+                        "format": "double"
+                    },
+                    "fee": {
+                        "type": "number",
+                        "description": "æç»­è´¹",
+                        "format": "double"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "é»è®¤åç»ï¼åªè½æä¸ä¸ªï¼"
+                    },
+                    "remark": {
+                        "type": "string",
+                        "description": "å¤æ³¨",
+                        "nullable": true
+                    },
+                    "createTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetAccountGroupListResponsePageableResult": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GetAccountGroupListResponse"
+                        },
+                        "nullable": true
+                    },
+                    "totalCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetAuditDetailResponse": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "description": "ç³è¯·äººId",
+                        "format": "int32"
+                    },
+                    "auditContent": {
+                        "type": "string",
+                        "description": "å®¡æ ¸åå®¹ jsonæ ¼å¼",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetCreateAccountAuditDetailResponse": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "MT4è´¦æ·",
+                        "nullable": true
+                    },
+                    "setting": {
+                        "$ref": "#/components/schemas/TradeAccountSetting"
+                    },
+                    "applicationTime": {
+                        "type": "integer",
+                        "description": "ç³è¯·æ¶é´",
+                        "format": "int64"
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "description": "è´¦æ·åè®®",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetListByUserIdResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "applyTime": {
+                        "type": "integer",
+                        "description": "ç³è¯·æ¶é´",
+                        "format": "int64"
+                    },
+                    "completeTime": {
+                        "type": "integer",
+                        "description": "å®ææ¶é´",
+                        "format": "int64"
+                    },
+                    "info": {
+                        "$ref": "#/components/schemas/BankCardBaseInfo"
+                    },
+                    "lastApprovalRecord": {
+                        "$ref": "#/components/schemas/ApprovalRecordDto"
+                    },
+                    "approvalDocumentId": {
+                        "type": "integer",
+                        "description": "å®¡æ¹ææ¡£ä¿¡æ¯",
+                        "format": "int32"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "-1ãå·²å é¤ 0ãæ­£å¸¸  1ãå®¡æ ¸ä¸­",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "GetUnSignedProtocolListResponse": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "description": "ç¨æ·id",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "è´¦æ·",
+                        "nullable": true
+                    },
+                    "profileContent": {
+                        "type": "string",
+                        "description": "åè®®åå®¹ jsonæ ¼å¼",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyAccountAliasRequest": {
+                "required": [
+                    "alias"
+                ],
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "description": "ç¨æ·id",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "è´¦æ·",
+                        "nullable": true
+                    },
+                    "alias": {
+                        "maxLength": 36,
+                        "type": "string",
+                        "description": "å«å"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyAccountGroupRequest": {
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "ç»å ï¼mt4ä¸­çè´¦æ·ç»ï¼"
+                    },
+                    "type": {
+                        "maxLength": 64,
+                        "type": "string",
+                        "description": "è´¦æ·ç±»å"
+                    },
+                    "spread": {
+                        "maximum": 100,
+                        "minimum": 0,
+                        "type": "number",
+                        "description": "ç¹å·®",
+                        "format": "double"
+                    },
+                    "fee": {
+                        "maximum": 100,
+                        "minimum": 0,
+                        "type": "number",
+                        "description": "æç»­è´¹",
+                        "format": "double"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "é»è®¤åç»ï¼åªè½æä¸ä¸ªï¼"
+                    },
+                    "remark": {
+                        "maxLength": 1024,
+                        "type": "string",
+                        "description": "å¤æ³¨",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyAccountRequest": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "description": "ç¨æ·id",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "MT4è´¦æ·",
+                        "nullable": true
+                    },
+                    "readonly": {
+                        "type": "boolean",
+                        "description": "æ¯å¦èªè¯»",
+                        "nullable": true
+                    },
+                    "enable": {
+                        "type": "boolean",
+                        "description": "æ¯å¦å¯ç¨",
+                        "nullable": true
+                    },
+                    "enableDeposit": {
+                        "type": "boolean",
+                        "description": "åè®¸å¥é",
+                        "nullable": true
+                    },
+                    "enableWithdrawal": {
+                        "type": "boolean",
+                        "description": "åè®¸åºé",
+                        "nullable": true
+                    },
+                    "accountTypeCode": {
+                        "type": "string",
+                        "description": "ç±»å« StandardãProfessional",
+                        "nullable": true
+                    },
+                    "group": {
+                        "type": "string",
+                        "description": "MT4ä¸­çåç»",
+                        "nullable": true
+                    },
+                    "alias": {
+                        "maxLength": 36,
+                        "type": "string",
+                        "description": "å«å",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyAccountStatusRequest": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "description": "ç¨æ·id",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "MT4è´¦æ·",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "boolean",
+                        "description": "ç¶æ"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyAuditingProfileRequest": {
+                "type": "object",
+                "properties": {
+                    "auditId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "personal": {
+                        "$ref": "#/components/schemas/ModifyProfile_Personal"
+                    },
+                    "bankAccount": {
+                        "$ref": "#/components/schemas/ModifyProfile_BankAccount"
+                    },
+                    "accountSetting": {
+                        "$ref": "#/components/schemas/ModifyProfile_AccountSetting"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyGroupRequest": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "description": "ç¨æ·id",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "MT4è´¦æ·",
+                        "nullable": true
+                    },
+                    "accountTypeCode": {
+                        "type": "string",
+                        "description": "ç±»å« StandardãProfessional",
+                        "nullable": true
+                    },
+                    "group": {
+                        "type": "string",
+                        "description": "MT4ä¸­çåç»",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyProfile_AccountSetting": {
+                "type": "object",
+                "properties": {
+                    "accountType": {
+                        "type": "string",
+                        "description": "è´¦æ·ç±»åçCode",
+                        "nullable": true
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "å¸ç§",
+                        "nullable": true
+                    },
+                    "exchangeRate": {
+                        "type": "number",
+                        "description": "æ±ç",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyProfile_BankAccount": {
+                "type": "object",
+                "properties": {
+                    "holder": {
+                        "type": "string",
+                        "description": "æå¡äºº",
+                        "nullable": true
+                    },
+                    "bankName": {
+                        "type": "string",
+                        "description": "é¶è¡åç§°",
+                        "nullable": true
+                    },
+                    "bankCardNo": {
+                        "type": "string",
+                        "description": "é¶è¡å¡å·",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyProfile_Personal": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "å§å",
+                        "nullable": true
+                    },
+                    "gender": {
+                        "type": "string",
+                        "description": "æ§å«",
+                        "nullable": true
+                    },
+                    "birthday": {
+                        "type": "integer",
+                        "description": "çæ¥",
+                        "format": "int64"
+                    },
+                    "birthPlace": {
+                        "type": "string",
+                        "description": "åºçå°",
+                        "nullable": true
+                    },
+                    "identityType": {
+                        "type": "string",
+                        "description": "è¯ä»¶ç±»å",
+                        "nullable": true
+                    },
+                    "identityNumber": {
+                        "type": "string",
+                        "description": "è¯ä»¶å·",
+                        "nullable": true
+                    },
+                    "taxpayerNumber": {
+                        "type": "string",
+                        "description": "npwp çº³ç¨äººç¼å·",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "OrderQueryModel": {
+                "type": "object",
+                "properties": {
+                    "ticket": {
+                        "type": "integer",
+                        "description": "è®¢åå·",
+                        "format": "int32"
+                    },
+                    "serverId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "MTè´¦å·",
+                        "nullable": true
+                    },
+                    "symbol": {
+                        "type": "string",
+                        "description": "äº¤æåç§",
+                        "nullable": true
+                    },
+                    "standardSymbol": {
+                        "type": "string",
+                        "description": "æ ååç§åç§°",
+                        "nullable": true
+                    },
+                    "tradeType": {
+                        "type": "integer",
+                        "description": "äº¤æç±»å  0ï¼ä¹°å¥ 1ï¼ååº 2ï¼éä»·ä¹°å¥ 3ï¼éä»·ååº 4ï¼ä¹°å¥æ­¢æ 5ï¼ååºæ­¢æ 6ï¼ä½é¢ 7ï¼ä¿¡ç¨",
+                        "format": "int32"
+                    },
+                    "lots": {
+                        "type": "number",
+                        "description": "ææ°/äº¤æé",
+                        "format": "double"
+                    },
+                    "openTime": {
+                        "type": "integer",
+                        "description": "å»ºä»æ¶é´",
+                        "format": "int64"
+                    },
+                    "openPrice": {
+                        "type": "number",
+                        "description": "å»ºä»ä»·æ ¼",
+                        "format": "double"
+                    },
+                    "closeTime": {
+                        "type": "integer",
+                        "description": "å¹³ä»æ¶é´",
+                        "format": "int64"
+                    },
+                    "closePrice": {
+                        "type": "number",
+                        "description": "å¹³ä»ä»·æ ¼",
+                        "format": "double"
+                    },
+                    "sl": {
+                        "type": "number",
+                        "description": "æ­¢æä»·",
+                        "format": "double"
+                    },
+                    "tp": {
+                        "type": "number",
+                        "description": "æ­¢çä»·",
+                        "format": "double"
+                    },
+                    "swaps": {
+                        "type": "number",
+                        "description": "å©æ¯ï¼åºå­è´¹ï¼",
+                        "format": "double"
+                    },
+                    "commission": {
+                        "type": "number",
+                        "description": "æç»­è´¹",
+                        "format": "double"
+                    },
+                    "profit": {
+                        "type": "number",
+                        "description": "è·å©",
+                        "format": "double"
+                    },
+                    "pips": {
+                        "type": "number",
+                        "description": "çå©ç¹æ°",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PaymentMethod": {
+                "enum": [
+                    "1 - BankCard",
+                    "2 - USDT",
+                    "3 - PerfectMoney"
+                ],
+                "type": "integer",
+                "description": "æ¯ä»æ¹å¼",
+                "format": "int32"
+            },
+            "RepeatUsersResponse": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "description": "éå¤çé®:jsonPathè·¯å¾ https://www.cnblogs.com/Live-up-to-your-youth/p/14077889.html",
+                        "nullable": true
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "description": "ç¨æ·id",
+                        "format": "int32"
+                    },
+                    "imageUrl": {
+                        "type": "string",
+                        "description": "å¤´åå°å",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ResetProtocolRequest": {
+                "required": [
+                    "account"
+                ],
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "è´¦æ·"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ResetUserProtocolRequest": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SearchAccountModel": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": "string",
+                        "description": "MT4è´¦æ·",
+                        "nullable": true
+                    },
+                    "nickName": {
+                        "type": "string",
+                        "description": "æµç§°",
+                        "nullable": true
+                    },
+                    "realName": {
+                        "type": "string",
+                        "description": "çå®å§å",
+                        "nullable": true
+                    },
+                    "balance": {
+                        "type": "number",
+                        "description": "ä½é¢",
+                        "format": "double"
+                    },
+                    "credit": {
+                        "type": "number",
+                        "description": "ä¿¡ç¨é",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SendWPSmsRequest": {
+                "required": [
+                    "message"
+                ],
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "integer",
+                        "description": "åéç±»å 1ãçµè¯åç­ä¿¡éç¥ 2ãçµè¯åç­ä¿¡éç¥",
+                        "format": "int32"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "åéçåå®¹"
+                    },
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SignProtocolRequest": {
+                "required": [
+                    "account",
+                    "profileContent"
+                ],
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "è´¦æ·"
+                    },
+                    "profileContent": {
+                        "type": "string",
+                        "description": "åè®®åå®¹ ï¼åç«¯åå®æ ¼å¼åç«¯å­å¨ï¼"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TradeAccountQueryModel": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": "string",
+                        "description": "è´¦æ·",
+                        "nullable": true
+                    },
+                    "accountIndex": {
+                        "type": "integer",
+                        "description": "è´¦æ·åºå·",
+                        "format": "int32"
+                    },
+                    "accountType": {
+                        "$ref": "#/components/schemas/AccountType"
+                    },
+                    "tradeCurrency": {
+                        "type": "string",
+                        "description": "äº¤æå¸ç§",
+                        "nullable": true
+                    },
+                    "fundCurrency": {
+                        "type": "string",
+                        "description": "è´¦æ·å­åçå¸ç§",
+                        "nullable": true
+                    },
+                    "exchangeRate": {
+                        "type": "number",
+                        "description": "æ±ç",
+                        "format": "double"
+                    },
+                    "server": {
+                        "$ref": "#/components/schemas/AccountServer"
+                    },
+                    "leverage": {
+                        "type": "integer",
+                        "description": "æ æ",
+                        "format": "int32"
+                    },
+                    "setting": {
+                        "$ref": "#/components/schemas/TradeAccountSetting"
+                    },
+                    "openTime": {
+                        "type": "integer",
+                        "description": "å¼æ·æ¶é´ï¼æ¶é´æ³ï¼",
+                        "format": "int64"
+                    },
+                    "group": {
+                        "type": "string",
+                        "description": "è´¦æ·ç»",
+                        "nullable": true
+                    },
+                    "summary": {
+                        "$ref": "#/components/schemas/AccountSummary"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "æ¯å¦é»è®¤è´¦æ·"
+                    },
+                    "timeZone": {
+                        "type": "integer",
+                        "description": "è´¦æ·æ¶åº",
+                        "format": "int32"
+                    },
+                    "markUpPolicy": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "tradingPlatform": {
+                        "type": "string",
+                        "description": "äº¤æå¹³å°",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "è´¦æ·ç¶æ 1ï¼æ­£å¸¸ 2ï¼ç¦ç¨ 3ï¼åªè¯»",
+                        "format": "int32",
+                        "readOnly": true
+                    },
+                    "isProtocolCompleted": {
+                        "type": "boolean",
+                        "description": "åè®®æä»¶æ¯å¦å®æï¼è´¦æ·å®¡æ¹å®æåå®æå¡«ååè®®ï¼"
+                    },
+                    "alias": {
+                        "type": "string",
+                        "description": "è´¦æ·å«å",
+                        "nullable": true
+                    },
+                    "role": {
+                        "$ref": "#/components/schemas/AccountRole"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TradeAccountSetting": {
+                "type": "object",
+                "properties": {
+                    "readonly": {
+                        "type": "boolean",
+                        "description": "æ¯å¦åªè¯»"
+                    },
+                    "enable": {
+                        "type": "boolean",
+                        "description": "æ¯å¦å¯ç¨"
+                    },
+                    "enableDeposit": {
+                        "type": "boolean",
+                        "description": "åè®¸å¥é"
+                    },
+                    "enableWithdrawal": {
+                        "type": "boolean",
+                        "description": "åè®¸åºé"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "äº¤æè´¦æ·è®¾ç½®"
+            },
+            "TradeMonthlyReportModel": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                    },
+                    "userName": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "account": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "serverId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                    },
+                    "month": {
+                        "type": "integer",
+                        "description": "æ¥åæä»½ æ ¼å¼ä¸ºï¼202203 è¡¨ç¤º2022å¹´3æçæ¥å",
+                        "format": "int32"
+                    },
+                    "reportTime": {
+                        "type": "string",
+                        "description": "æ¥åæ¶é´",
+                        "format": "date-time"
+                    },
+                    "closedOrders": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderQueryModel"
+                        },
+                        "description": "å·²å¹³ä»è®¢å",
+                        "nullable": true
+                    },
+                    "positionOrders": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderQueryModel"
+                        },
+                        "description": "æä»è®¢å",
+                        "nullable": true
+                    },
+                    "summary": {
+                        "$ref": "#/components/schemas/TradeMonthlyReportSummaryModel"
+                    },
+                    "tradeTimeZone": {
+                        "type": "integer",
+                        "description": "äº¤ææ¶åº",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TradeMonthlyReportSummaryModel": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "serverId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "account": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "equity": {
+                        "type": "number",
+                        "description": "åå¼",
+                        "format": "double"
+                    },
+                    "balance": {
+                        "type": "number",
+                        "description": "ä½é¢",
+                        "format": "double"
+                    },
+                    "credit": {
+                        "type": "number",
+                        "description": "ä¿¡ç¨é",
+                        "format": "double"
+                    },
+                    "deposit": {
+                        "type": "number",
+                        "description": "å¥é",
+                        "format": "double"
+                    },
+                    "netDeposit": {
+                        "type": "number",
+                        "description": "åå¥é å¥é+åºé",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "withdrawal": {
+                        "type": "number",
+                        "description": "åºé",
+                        "format": "double"
+                    },
+                    "lots": {
+                        "type": "number",
+                        "description": "äº¤æææ°",
+                        "format": "double"
+                    },
+                    "profit": {
+                        "type": "number",
+                        "description": "å¹³ä»çäº",
+                        "format": "double"
+                    },
+                    "trades": {
+                        "type": "number",
+                        "description": "äº¤æç¬æ°",
+                        "format": "double"
+                    },
+                    "commission": {
+                        "type": "number",
+                        "description": "ä½£é",
+                        "format": "double"
+                    },
+                    "swaps": {
+                        "type": "number",
+                        "description": "æç»­è´¹",
+                        "format": "double"
+                    },
+                    "netProfit": {
+                        "type": "number",
+                        "description": "åçäº",
+                        "format": "double",
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UnSignedUserProtocolsResponse": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "description": "ç¨æ·id",
+                        "format": "int32"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "åè®®åå®¹ jsonæ ¼å¼",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UpgradeCustomerTypeRequest": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "customerType": {
+                        "$ref": "#/components/schemas/CustomerType"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UserProfileSimpleInfo": {
+                "type": "object",
+                "properties": {
+                    "customerType": {
+                        "$ref": "#/components/schemas/CustomerType"
+                    },
+                    "customerTypeLeverage": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UserProtocolsRequest": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "data": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "nullable": true
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UserSwapFreeResponse": {
+                "type": "object",
+                "properties": {
+                    "remanentLot": {
+                        "type": "number",
+                        "description": "å©ä½ææ°",
+                        "format": "double"
+                    },
+                    "remanentTime": {
+                        "type": "integer",
+                        "description": "å©ä½æ¶é´(ç§)",
+                        "format": "int64"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "ç¶æï¼ 0:è´¦æ·æ´»å¨æªå¼å¯,\r\n       1:è´¦æ·æ´»å¨å¼å¯ï¼æªå°æ\r\n       2.è´¦æ·æ´»å¨å¼å¯ï¼å·²å°æ",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "securitySchemes": {
+            "Bearer": {
+                "type": "apiKey",
+                "description": "Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "Bearer": []
+        }
+    ]
+}
