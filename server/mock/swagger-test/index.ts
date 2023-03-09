@@ -1,4 +1,4 @@
-import { success } from "../../utils/res-builder";
+// import { success } from "../../utils/res-builder";
 
 const find = require("find");
 const path = require("path");
@@ -57,7 +57,7 @@ jsonList.forEach((fullPath: string) => {
   const info = getInfoByFilePath(fullPath);
 
   router.get(info.api, (req, res, next) => {
-    res.json(success(require(info.resJsonPath)));
+    res.json(require(info.resJsonPath));
   });
 });
 

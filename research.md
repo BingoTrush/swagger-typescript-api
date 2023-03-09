@@ -13,3 +13,9 @@
  This is run AFTER prepublish, but BEFORE prepublishOnly. 
 
 ```
+
+```js
+ start
+ 
+  npx swagger-typescript-api -p http://127.0.0.1:8000/swagger/docs/v1/crm-identity-v1
+```
